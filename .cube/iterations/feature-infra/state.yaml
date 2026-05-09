@@ -1,0 +1,15 @@
+branch: feature/infra
+current_stage: 02-design
+created: 2026-05-09
+
+stages:
+  01-prd: PASS
+  02-design: IN_PROGRESS
+  03-test-cases: PENDING
+  04-development: PENDING
+  05-testing: PENDING
+
+history:
+  - time: "2026-05-09 08:23:01"
+    action: advance
+    detail: "01-prd → 02-design"
