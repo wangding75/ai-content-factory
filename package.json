@@ -5,19 +5,21 @@
   "scripts": {
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test",
+    "test": "vitest run && pnpm -r test",
     "build": "pnpm -r build",
     "db:check": "pnpm --filter @ai-content-factory/api-server db:check",
     "ci:check": "bash scripts/ci.sh"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "@nestjs/core",
       "@prisma/client",
       "@prisma/engines",
+      "@swc/core",
       "esbuild",
       "nestjs-pino",
       "prisma"
