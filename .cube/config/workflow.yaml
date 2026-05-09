@@ -31,10 +31,12 @@ modules:
   - name: packages/shared
     source_dir: packages/shared/src
     test_dir: packages/shared/src
+  - name: root
+    source_dir: "."
 
 language_config:
   build_tool: vitest
-  compile_command: "pnpm tsc --noEmit"
+  compile_command: "pnpm -r typecheck"
   test_command: "pnpm vitest run"
   red_test_command: "pnpm vitest run"
   green_test_command: "pnpm vitest run"

@@ -1,171 +1,97 @@
 # Skeleton Map — Iteration 0 (feature/infra)
-# Maps each skeleton file to its originating Development Task.
-# Coverage requirement: 100% of tasks with skeleton output must appear here.
+# Format: files[] with path (relative to project root, resolved via root source_dir)
+#         and tasks[] (exact task names matching Development Tasks in design.md)
+# Coverage requirement: 100% of Development Tasks covered.
 
-- file: pnpm-workspace.yaml
-  task: Task-01
-  type: config
+files:
+  - path: pnpm-workspace.yaml
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
 
-- file: package.json
-  task: Task-01
-  type: config
+  - path: package.json
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
 
-- file: tsconfig.base.json
-  task: Task-01
-  type: config
+  - path: tsconfig.base.json
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
 
-- file: .gitignore
-  task: Task-01
-  type: config
+  - path: .gitignore
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
 
-- file: .env.example
-  task: Task-02
-  type: config
+  - path: .env.example
+    tasks:
+      - "Task-02：创建 .env.example 环境变量模板"
 
-- file: packages/shared/package.json
-  task: Task-03
-  type: config
+  - path: packages/shared/src/index.ts
+    tasks:
+      - "Task-03：初始化 packages/shared"
 
-- file: packages/shared/tsconfig.json
-  task: Task-03
-  type: config
+  - path: packages/core/src/index.ts
+    tasks:
+      - "Task-04：初始化 packages/core 并建立命名约束"
 
-- file: packages/shared/src/index.ts
-  task: Task-03
-  type: skeleton
+  - path: packages/content-packs/novel-pack/src/index.ts
+    tasks:
+      - "Task-05：初始化 packages/content-packs/novel-pack"
 
-- file: packages/core/package.json
-  task: Task-04
-  type: config
+  - path: packages/platform-adapters/README.md
+    tasks:
+      - "Task-06：初始化 packages/platform-adapters 目录占位"
 
-- file: packages/core/tsconfig.json
-  task: Task-04
-  type: config
+  - path: apps/api-server/src/main.ts
+    tasks:
+      - "Task-07：初始化 apps/api-server NestJS 基础框架"
 
-- file: packages/core/src/index.ts
-  task: Task-04
-  type: skeleton
+  - path: apps/api-server/src/app.module.ts
+    tasks:
+      - "Task-07：初始化 apps/api-server NestJS 基础框架"
+      - "Task-08：集成 @nestjs/config + Joi 配置校验"
+      - "Task-09：集成 nestjs-pino 结构化日志"
+      - "Task-10：集成 Prisma + PrismaService"
+      - "Task-11：实现 GET /health 接口"
 
-- file: packages/content-packs/novel-pack/package.json
-  task: Task-05
-  type: config
+  - path: apps/api-server/src/config/configuration.ts
+    tasks:
+      - "Task-08：集成 @nestjs/config + Joi 配置校验"
 
-- file: packages/content-packs/novel-pack/tsconfig.json
-  task: Task-05
-  type: config
+  - path: apps/api-server/src/prisma/prisma.service.ts
+    tasks:
+      - "Task-10：集成 Prisma + PrismaService"
 
-- file: packages/content-packs/novel-pack/src/index.ts
-  task: Task-05
-  type: skeleton
+  - path: apps/api-server/src/prisma/prisma.module.ts
+    tasks:
+      - "Task-10：集成 Prisma + PrismaService"
 
-- file: packages/platform-adapters/package.json
-  task: Task-06
-  type: config
+  - path: apps/api-server/src/health/health.service.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
 
-- file: packages/platform-adapters/README.md
-  task: Task-06
-  type: doc
+  - path: apps/api-server/src/health/health.controller.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
 
-- file: packages/platform-adapters/tsconfig.json
-  task: Task-06
-  type: config
+  - path: apps/api-server/src/health/health.module.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
 
-- file: packages/platform-adapters/src/index.ts
-  task: Task-06
-  type: skeleton
+  - path: apps/api-server/src/health/dto/health-status.dto.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
 
-- file: apps/api-server/package.json
-  task: Task-07
-  type: config
+  - path: apps/web-admin/src/app/page.tsx
+    tasks:
+      - "Task-12：初始化 apps/web-admin Next.js 应用"
 
-- file: apps/api-server/tsconfig.json
-  task: Task-07
-  type: config
+  - path: apps/web-admin/src/app/layout.tsx
+    tasks:
+      - "Task-12：初始化 apps/web-admin Next.js 应用"
 
-- file: apps/api-server/tsconfig.build.json
-  task: Task-07
-  type: config
+  - path: scripts/ci.sh
+    tasks:
+      - "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
 
-- file: apps/api-server/src/main.ts
-  task: Task-07
-  type: skeleton
-
-- file: apps/api-server/src/app.module.ts
-  task: Task-07
-  type: skeleton
-
-- file: apps/api-server/src/config/configuration.ts
-  task: Task-08
-  type: skeleton
-
-- file: apps/api-server/src/prisma/prisma.service.ts
-  task: Task-10
-  type: skeleton
-
-- file: apps/api-server/src/prisma/prisma.module.ts
-  task: Task-10
-  type: skeleton
-
-- file: apps/api-server/prisma/schema.prisma
-  task: Task-10
-  type: config
-
-- file: apps/api-server/src/health/dto/health-status.dto.ts
-  task: Task-11
-  type: skeleton
-
-- file: apps/api-server/src/health/health.service.ts
-  task: Task-11
-  type: skeleton
-
-- file: apps/api-server/src/health/health.controller.ts
-  task: Task-11
-  type: skeleton
-
-- file: apps/api-server/src/health/health.module.ts
-  task: Task-11
-  type: skeleton
-
-- file: apps/web-admin/package.json
-  task: Task-12
-  type: config
-
-- file: apps/web-admin/tsconfig.json
-  task: Task-12
-  type: config
-
-- file: apps/web-admin/next.config.ts
-  task: Task-12
-  type: config
-
-- file: apps/web-admin/src/app/layout.tsx
-  task: Task-12
-  type: skeleton
-
-- file: apps/web-admin/src/app/page.tsx
-  task: Task-12
-  type: skeleton
-
-- file: scripts/ci.sh
-  task: Task-13
-  type: skeleton
-
-- file: docs/product/.gitkeep
-  task: Task-14
-  type: dir
-
-- file: docs/architecture/.gitkeep
-  task: Task-14
-  type: dir
-
-- file: docs/iterations/.gitkeep
-  task: Task-14
-  type: dir
-
-- file: docs/content-packs/.gitkeep
-  task: Task-14
-  type: dir
-
-# Tasks with no skeleton output (config-only or infrastructure):
-# Task-09 (nestjs-pino): LoggerModule integration lives in app.module.ts (Task-07 skeleton)
-# — no separate skeleton file; the LoggerModule.forRootAsync() call is part of AppModule
+  - path: docs/iteration-README.md
+    tasks:
+      - "Task-14：创建 docs 子目录结构"

@@ -1,11 +1,11 @@
 branch: feature/infra
-current_stage: 02-design
+current_stage: 03-test-cases
 created: 2026-05-09
 
 stages:
   01-prd: PASS
   02-design: PASS
-  03-test-cases: PENDING
+  03-test-cases: IN_PROGRESS
   04-development: PENDING
   05-testing: PENDING
 
@@ -16,3 +16,7 @@ history:
   - time: "2026-05-09 17:30:00"
     action: complete
     detail: "02-design: design.md + skeleton files generated, typecheck PASS"
+
+  - time: "2026-05-09 09:08:26"
+    action: advance
+    detail: "02-design → 03-test-cases"

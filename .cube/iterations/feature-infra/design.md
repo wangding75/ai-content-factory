@@ -398,212 +398,183 @@ ai-content-factory/
 
 ---
 
-**Task-01：初始化根目录 Monorepo 配置**
-
-- 所属模块：根目录
-- 描述：创建 `pnpm-workspace.yaml`（声明 apps/*, packages/**, packages/content-packs/**, packages/platform-adapters/**）、根 `package.json`（含 lint/typecheck/test/build scripts）、`tsconfig.base.json`（共享 strict 模式 TS 配置）、`.gitignore`（含 .env/node_modules/dist/.next）
-- 涉及接口/方法：无（纯配置）
-- 输入：无
-- 输出：`pnpm install` 可成功执行，workspace 识别所有子包
-- 产出类型：配置文件
-- 功能类型：none
-- type id：`none`
-- 是否跨组件：否
-
----
-
-**Task-02：创建 .env.example 环境变量模板**
-
-- 所属模块：根目录
-- 描述：创建 `.env.example`，包含以下占位字段：`PORT=3000`、`DATABASE_URL=postgresql://user:pass@localhost:5432/ai_content_factory`、`LOG_LEVEL=info`、`LLM_PROVIDER_API_KEY=`、`WEB_PORT=3001`
-- 涉及接口/方法：无
-- 输入：无
-- 输出：`.env.example` 文件存在，`.env` 被 `.gitignore` 忽略
-- 产出类型：配置文件
-- 功能类型：none
-- type id：`none`
-- 是否跨组件：否
+- Task-01：初始化根目录 Monorepo 配置
+  - 所属模块：根目录
+  - 描述：创建 `pnpm-workspace.yaml`（声明 apps/*, packages/**, packages/content-packs/**, packages/platform-adapters/**）、根 `package.json`（含 lint/typecheck/test/build scripts）、`tsconfig.base.json`（共享 strict 模式 TS 配置）、`.gitignore`（含 .env/node_modules/dist/.next）
+  - 涉及接口/方法：无（纯配置）
+  - 输入：无
+  - 输出：`pnpm install` 可成功执行，workspace 识别所有子包
+  - 产出类型：配置文件
+  - 功能类型：none
+  - type id：`none`
+  - 是否跨组件：否
 
 ---
 
-**Task-03：初始化 packages/shared**
-
-- 所属模块：packages/shared
-- 描述：创建 `packages/shared/package.json`（name: `@ai-content-factory/shared`）、`tsconfig.json`（extends ../../tsconfig.base.json）、`src/index.ts`（空导出）
-- 涉及接口/方法：`src/index.ts: export {}`
-- 输入：无
-- 输出：`@ai-content-factory/shared` 可被其他包通过 workspace 协议引用
-- 产出类型：TypeScript 包
-- 功能类型：library
-- type id：`library`
-- 是否跨组件：否
-
----
-
-**Task-04：初始化 packages/core 并建立命名约束**
-
-- 所属模块：packages/core
-- 描述：创建 `packages/core/package.json`（name: `@ai-content-factory/core`）、`tsconfig.json`、`src/index.ts`（空导出）。文件名、类名、变量名**禁止**包含 book/chapter/novel（大小写不敏感），由 Task-13 CI 脚本检测
-- 涉及接口/方法：`src/index.ts: export {}`
-- 输入：无
-- 输出：`@ai-content-factory/core` 可被引用；src/ 下无违规命名
-- 产出类型：TypeScript 包
-- 功能类型：library
-- type id：`library`
-- 是否跨组件：否
+- Task-02：创建 .env.example 环境变量模板
+  - 所属模块：根目录
+  - 描述：创建 `.env.example`，包含以下占位字段：`PORT=3000`、`DATABASE_URL=postgresql://user:pass@localhost:5432/ai_content_factory`、`LOG_LEVEL=info`、`LLM_PROVIDER_API_KEY=`、`WEB_PORT=3001`
+  - 涉及接口/方法：无
+  - 输入：无
+  - 输出：`.env.example` 文件存在，`.env` 被 `.gitignore` 忽略
+  - 产出类型：配置文件
+  - 功能类型：none
+  - type id：`none`
+  - 是否跨组件：否
 
 ---
 
-**Task-05：初始化 packages/content-packs/novel-pack**
-
-- 所属模块：packages/content-packs/novel-pack
-- 描述：创建 `package.json`（name: `@ai-content-factory/novel-pack`）、`tsconfig.json`、`src/index.ts`（空导出）。不得被 core 引用
-- 涉及接口/方法：`src/index.ts: export {}`
-- 输入：无
-- 输出：novel-pack 目录结构存在，`@ai-content-factory/novel-pack` 包可识别
-- 产出类型：TypeScript 包
-- 功能类型：library
-- type id：`library`
-- 是否跨组件：否
-
----
-
-**Task-06：初始化 packages/platform-adapters 目录占位**
-
-- 所属模块：packages/platform-adapters
-- 描述：创建 `packages/platform-adapters/package.json`（name: `@ai-content-factory/platform-adapters`, private: true，确保 pnpm workspace 识别该目录）和 `README.md`（说明：仅保留适配器接口和目录占位，不实现平台自动化）
-- 涉及接口/方法：无
-- 输入：无
-- 输出：目录存在，`ls packages/platform-adapters/` 可见 package.json 和 README.md；pnpm workspace 可识别该包
-- 产出类型：目录占位
-- 功能类型：none
-- type id：`none`
-- 是否跨组件：否
+- Task-03：初始化 packages/shared
+  - 所属模块：packages/shared
+  - 描述：创建 `packages/shared/package.json`（name: `@ai-content-factory/shared`）、`tsconfig.json`（extends ../../tsconfig.base.json）、`src/index.ts`（空导出）
+  - 涉及接口/方法：`src/index.ts: export {}`
+  - 输入：无
+  - 输出：`@ai-content-factory/shared` 可被其他包通过 workspace 协议引用
+  - 产出类型：TypeScript 包
+  - 功能类型：library
+  - type id：`library`
+  - 是否跨组件：否
 
 ---
 
-**Task-07：初始化 apps/api-server NestJS 基础框架**
-
-- 所属模块：apps/api-server
-- 描述：创建 NestJS 应用基础文件：`package.json`（含 NestJS 10.x 全套依赖）、`tsconfig.json`、`tsconfig.build.json`、`src/main.ts`（`NestFactory.create + listen(PORT)`）、`src/app.module.ts`（空根 Module）
-- 涉及接口/方法：`bootstrap(): Promise<void>`（main.ts）
-- 输入：`pnpm start:dev`
-- 输出：api-server 在 PORT（默认 3000）启动，控制台有启动成功日志
-- 产出类型：NestJS 应用
-- 功能类型：none（启动框架，无业务）
-- type id：`none`
-- 是否跨组件：否
-- 测试覆盖说明：本 Task 无独立测试用例，应用启动可用性验收由 Task-11 的 `GET /health` E2E 测试覆盖
+- Task-04：初始化 packages/core 并建立命名约束
+  - 所属模块：packages/core
+  - 描述：创建 `packages/core/package.json`（name: `@ai-content-factory/core`）、`tsconfig.json`、`src/index.ts`（空导出）。文件名、类名、变量名**禁止**包含 book/chapter/novel（大小写不敏感），由 Task-13 CI 脚本检测
+  - 涉及接口/方法：`src/index.ts: export {}`
+  - 输入：无
+  - 输出：`@ai-content-factory/core` 可被引用；src/ 下无违规命名
+  - 产出类型：TypeScript 包
+  - 功能类型：library
+  - type id：`library`
+  - 是否跨组件：否
 
 ---
 
-**Task-08：集成 @nestjs/config + Joi 配置校验**
-
-- 所属模块：apps/api-server
-- 描述：在 `AppModule` 引入 `ConfigModule.forRoot({ isGlobal: true, validationSchema })`；`src/config/configuration.ts` 定义 Joi schema：必须字段 `DATABASE_URL`（string, required），可选字段 `PORT`（number, default 3000）、`LOG_LEVEL`（string, default 'info'）、`LLM_PROVIDER_API_KEY`（string, optional, allow('')）；ConfigModule 设置 `validationOptions: { allowUnknown: true, abortEarly: false }`（`allowUnknown: true` 允许系统环境变量 PATH/HOME 等通过，`abortEarly: false` 在启动失败时一次性输出所有缺失字段）。
-- 涉及接口/方法：`ConfigModule.forRoot(options)`；`ConfigService.get<T>(key)`
-- 输入：`.env` 文件（含或不含 DATABASE_URL）
-- 输出：有效 .env → 配置可通过 ConfigService 访问；缺少 DATABASE_URL → 启动时抛出 ValidationError，进程退出，stderr 含字段名
-- 产出类型：配置模块
-- 功能类型：library
-- type id：`library`
-- 是否跨组件：否
-
----
-
-**Task-09：集成 nestjs-pino 结构化日志**
-
-- 所属模块：apps/api-server
-- 描述：在 `AppModule` 引入 `LoggerModule.forRootAsync()`，使用 `ConfigService` 读取 `LOG_LEVEL`；配置 pino 输出 JSON 格式，每条日志含 `timestamp`、`level`、`module`、`message` 字段；`main.ts` 调用 `app.useLogger(app.get(Logger))`。
-  **字段对齐说明**：nestjs-pino 默认将 NestJS 的 `context` 输出为 JSON key `context`，而 FR-033 要求字段名为 `module`。需在 `LoggerModule.forRootAsync()` 的 pinoHttp 配置中设置 `customAttributeKeys: { reqId: 'reqId' }` 并通过 `renameContext: 'module'`（nestjs-pino ≥ 3.x 支持）将 `context` 重命名为 `module`。若 nestjs-pino 版本不支持，则使用 `serializers` 或 `mixin` 手动映射。
-- 涉及接口/方法：`LoggerModule.forRootAsync(options)`；NestJS `Logger` interface
-- 输入：应用启动，LOG_LEVEL 环境变量
-- 输出：stdout 输出 JSON 格式日志，JSON key 包含 `timestamp`、`level`、`module`、`message`（`module` 对应 NestJS context 值）
-- 产出类型：日志模块
-- 功能类型：library
-- type id：`library`
-- 是否跨组件：否
+- Task-05：初始化 packages/content-packs/novel-pack
+  - 所属模块：packages/content-packs/novel-pack
+  - 描述：创建 `package.json`（name: `@ai-content-factory/novel-pack`）、`tsconfig.json`、`src/index.ts`（空导出）。不得被 core 引用
+  - 涉及接口/方法：`src/index.ts: export {}`
+  - 输入：无
+  - 输出：novel-pack 目录结构存在，`@ai-content-factory/novel-pack` 包可识别
+  - 产出类型：TypeScript 包
+  - 功能类型：library
+  - type id：`library`
+  - 是否跨组件：否
 
 ---
 
-**Task-10：集成 Prisma + PrismaService**
-
-- 所属模块：apps/api-server
-- 描述：创建 `prisma/schema.prisma`（仅 datasource + generator，无 model）；创建 `src/prisma/prisma.service.ts`（extends PrismaClient，实现 `onModuleInit` 连接数据库）；创建 `src/prisma/prisma.module.ts`（global module，导出 PrismaService）；在 `AppModule` 引入 `PrismaModule`；添加 `db:check` script（`prisma db execute` 或 `prisma migrate status`）
-- 涉及接口/方法：
-  - `PrismaService extends PrismaClient`
-  - `PrismaService.onModuleInit(): Promise<void>`
-- 输入：DATABASE_URL 环境变量
-- 输出：PrismaService 可注入其他模块；`pnpm db:check` 在 PostgreSQL 可达时退出码 0，不可达时退出码非 0 含错误信息
-- 产出类型：数据库模块
-- 功能类型：library
-- type id：`library`
-- 是否跨组件：否
+- Task-06：初始化 packages/platform-adapters 目录占位
+  - 所属模块：packages/platform-adapters
+  - 描述：创建 `packages/platform-adapters/package.json`（name: `@ai-content-factory/platform-adapters`, private: true，确保 pnpm workspace 识别该目录）和 `README.md`（说明：仅保留适配器接口和目录占位，不实现平台自动化）
+  - 涉及接口/方法：无
+  - 输入：无
+  - 输出：目录存在，`ls packages/platform-adapters/` 可见 package.json 和 README.md；pnpm workspace 可识别该包
+  - 产出类型：目录占位
+  - 功能类型：none
+  - type id：`none`
+  - 是否跨组件：否
 
 ---
 
-**Task-11：实现 GET /health 接口**
-
-- 所属模块：apps/api-server
-- 描述：创建 `src/health/health.service.ts`（`getStatus(): HealthStatusDto`）；创建 `src/health/health.controller.ts`（`@Get('/health') check(): HealthStatusDto`）；创建 `src/health/dto/health-status.dto.ts`（`{ status: string }`）；创建 `src/health/health.module.ts`；在 `AppModule` 引入 `HealthModule`
-- 涉及接口/方法：
-  - `GET /health → HealthController.check() → HealthService.getStatus()`
-  - `HealthService.getStatus(): HealthStatusDto`
-- 输入：`GET /health`（无请求体）
-- 输出：`{ "status": "ok" }`，HTTP 200
-- 产出类型：REST API 响应
-- 功能类型：Web/API
-- type id：`web-e2e`
-- 是否跨组件：否（api-server 内部）
+- Task-07：初始化 apps/api-server NestJS 基础框架
+  - 所属模块：apps/api-server
+  - 描述：创建 NestJS 应用基础文件：`package.json`（含 NestJS 10.x 全套依赖）、`tsconfig.json`、`tsconfig.build.json`、`src/main.ts`（`NestFactory.create + listen(PORT)`）、`src/app.module.ts`（空根 Module）
+  - 涉及接口/方法：`bootstrap(): Promise<void>`（main.ts）
+  - 输入：`pnpm start:dev`
+  - 输出：api-server 在 PORT（默认 3000）启动，控制台有启动成功日志
+  - 产出类型：NestJS 应用
+  - 功能类型：none（启动框架，无业务）
+  - type id：`none`
+  - 是否跨组件：否
+  - 测试覆盖说明：本 Task 无独立测试用例，应用启动可用性验收由 Task-11 的 `GET /health` E2E 测试覆盖
 
 ---
 
-**Task-12：初始化 apps/web-admin Next.js 应用**
-
-- 所属模块：apps/web-admin
-- 描述：创建 Next.js 14 App Router 应用；`src/app/layout.tsx`（根 layout，含 html/body）；`src/app/page.tsx`（首页，显示 "AI Content Factory" 项目名称占位）；`package.json`（name: `@ai-content-factory/web-admin`，含 next/react 依赖，`"dev": "next dev -p ${WEB_PORT:-3001}"` 以避免与 api-server 端口冲突）；`tsconfig.json`、`next.config.ts`
-- 涉及接口/方法：
-  - `HomePage(): JSX.Element`（page.tsx 默认导出）
-- 输入：`pnpm dev`（或 `pnpm start`）
-- 输出：浏览器访问 `localhost:{WEB_PORT}` → HTTP 200，页面含 "AI Content Factory"
-- 产出类型：Web 页面
-- 功能类型：Web/UI
-- type id：`web-e2e`
-- 是否跨组件：否
+- Task-08：集成 @nestjs/config + Joi 配置校验
+  - 所属模块：apps/api-server
+  - 描述：在 `AppModule` 引入 `ConfigModule.forRoot({ isGlobal: true, validationSchema })`；`src/config/configuration.ts` 定义 Joi schema：必须字段 `DATABASE_URL`（string, required），可选字段 `PORT`（number, default 3000）、`LOG_LEVEL`（string, default 'info'）、`LLM_PROVIDER_API_KEY`（string, optional, allow('')）；ConfigModule 设置 `validationOptions: { allowUnknown: true, abortEarly: false }`
+  - 涉及接口/方法：`ConfigModule.forRoot(options)`；`ConfigService.get<T>(key)`
+  - 输入：`.env` 文件（含或不含 DATABASE_URL）
+  - 输出：有效 .env → 配置可通过 ConfigService 访问；缺少 DATABASE_URL → 启动时抛出 ValidationError，进程退出，stderr 含字段名
+  - 产出类型：配置模块
+  - 功能类型：library
+  - type id：`library`
+  - 是否跨组件：否
 
 ---
 
-**Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）**
-
-- 所属模块：scripts/
-- 描述：创建 `scripts/ci.sh`（bash，`set -euo pipefail`），依次执行以下步骤：
-  1. **install**：`pnpm install`
-  2. **lint**：`pnpm lint`
-  3. **typecheck**：`pnpm typecheck`
-  4. **test**：`pnpm test`
-  5. **root-name-check**：验证根 `package.json` name 字段为 `ai-content-factory`（`jq -r .name package.json` 或 `node -e "require('./package.json').name"`），不符则失败（FR-001）
-  6. **naming-check**：检测 `packages/core/src/` 下违规命名（使用 `if grep -riqE 'book|chapter|novel' packages/core/src/ 2>/dev/null; then fail; fi`，`-E` 启用扩展正则，`2>/dev/null` 确保目录不存在时不触发 `set -e`）
-  7. **db:check**：`pnpm db:check`
-
-  每步骤失败时输出 `STEP FAILED: {step_name}` 到 stderr 并 exit 1；在根 `package.json` 添加 `"ci:check": "bash scripts/ci.sh"` script。
-- 涉及接口/方法：Bash 脚本，无 TypeScript 接口
-- 输入：项目代码库（各步骤依次触发）
-- 输出：全部通过 → exit 0；任意失败 → exit 1 + "STEP FAILED: {step_name}" 到 stderr
-- 产出类型：CLI 脚本
-- 功能类型：CLI + 跨组件集成
-- type id：`cli`
-- 是否跨组件：是（组件链路：ci.sh → install → lint → typecheck → test → root-name-check → naming-check → db:check）
+- Task-09：集成 nestjs-pino 结构化日志
+  - 所属模块：apps/api-server
+  - 描述：在 `AppModule` 引入 `LoggerModule.forRootAsync()`，使用 `ConfigService` 读取 `LOG_LEVEL`；配置 pino 输出 JSON 格式，每条日志含 `timestamp`、`level`、`module`、`message` 字段；`main.ts` 调用 `app.useLogger(app.get(Logger))`；使用 `renameContext: 'module'` 将 NestJS context 重命名为 module 字段
+  - 涉及接口/方法：`LoggerModule.forRootAsync(options)`；NestJS `Logger` interface
+  - 输入：应用启动，LOG_LEVEL 环境变量
+  - 输出：stdout 输出 JSON 格式日志，JSON key 包含 `timestamp`、`level`、`module`、`message`
+  - 产出类型：日志模块
+  - 功能类型：library
+  - type id：`library`
+  - 是否跨组件：否
 
 ---
 
-**Task-14：创建 docs 子目录结构**
+- Task-10：集成 Prisma + PrismaService
+  - 所属模块：apps/api-server
+  - 描述：创建 `prisma/schema.prisma`（仅 datasource + generator，无 model）；创建 `src/prisma/prisma.service.ts`（extends PrismaClient，实现 `onModuleInit` 连接数据库）；创建 `src/prisma/prisma.module.ts`（global module，导出 PrismaService）；在 `AppModule` 引入 `PrismaModule`；添加 `db:check` script（`prisma migrate status`）
+  - 涉及接口/方法：`PrismaService extends PrismaClient`；`PrismaService.onModuleInit(): Promise<void>`
+  - 输入：DATABASE_URL 环境变量
+  - 输出：PrismaService 可注入其他模块；`pnpm db:check` 在 PostgreSQL 可达时退出码 0，不可达时退出码非 0 含错误信息
+  - 产出类型：数据库模块
+  - 功能类型：library
+  - type id：`library`
+  - 是否跨组件：否
 
-- 所属模块：docs/
-- 描述：在 `docs/` 下创建 `product/`、`architecture/`、`iterations/`、`content-packs/` 子目录，各目录添加 `.gitkeep` 占位。**验收确认**：以下文件须已通过初始提交存在，Task-14 验收时须确认其存在：`docs/00-product-blueprint.md`、`docs/00-product-blueprint-README.md`、`docs/iteration-README.md`、`docs/iteration-0-scaffold-requirements.md`（FR-061）。
-- 涉及接口/方法：无
-- 输入：无
-- 输出：`ls docs/` 可见四个子目录；上述四个文档文件存在
-- 产出类型：目录结构
-- 功能类型：none
-- type id：`none`
-- 是否跨组件：否
+---
+
+- Task-11：实现 GET /health 接口
+  - 所属模块：apps/api-server
+  - 描述：创建 `src/health/health.service.ts`（`getStatus(): HealthStatusDto`）；创建 `src/health/health.controller.ts`（`@Get('/health') check(): HealthStatusDto`）；创建 `src/health/dto/health-status.dto.ts`（`{ status: string }`）；创建 `src/health/health.module.ts`；在 `AppModule` 引入 `HealthModule`
+  - 涉及接口/方法：`GET /health → HealthController.check() → HealthService.getStatus()`；`HealthService.getStatus(): HealthStatusDto`
+  - 输入：`GET /health`（无请求体）
+  - 输出：`{ "status": "ok" }`，HTTP 200
+  - 产出类型：REST API 响应
+  - 功能类型：Web/API
+  - type id：`web-e2e`
+  - 是否跨组件：否（api-server 内部）
+
+---
+
+- Task-12：初始化 apps/web-admin Next.js 应用
+  - 所属模块：apps/web-admin
+  - 描述：创建 Next.js 14 App Router 应用；`src/app/layout.tsx`（根 layout，含 html/body）；`src/app/page.tsx`（首页，显示 "AI Content Factory" 项目名称占位）；`package.json`（name: `@ai-content-factory/web-admin`，含 next/react 依赖，`"dev": "next dev -p ${WEB_PORT:-3001}"`）；`tsconfig.json`、`next.config.ts`
+  - 涉及接口/方法：`HomePage(): JSX.Element`（page.tsx 默认导出）
+  - 输入：`pnpm dev`（或 `pnpm start`）
+  - 输出：浏览器访问 `localhost:{WEB_PORT}` → HTTP 200，页面含 "AI Content Factory"
+  - 产出类型：Web 页面
+  - 功能类型：Web/UI
+  - type id：`web-e2e`
+  - 是否跨组件：否
+
+---
+
+- Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）
+  - 所属模块：scripts/
+  - 描述：创建 `scripts/ci.sh`（bash，`set -euo pipefail`），依次执行：install → lint → typecheck → test → root-name-check → naming-check → db:check；每步骤失败时输出 `STEP FAILED: {step_name}` 到 stderr 并 exit 1
+  - 涉及接口/方法：Bash 脚本，无 TypeScript 接口
+  - 输入：项目代码库（各步骤依次触发）
+  - 输出：全部通过 → exit 0；任意失败 → exit 1 + "STEP FAILED: {step_name}" 到 stderr
+  - 产出类型：CLI 脚本
+  - 功能类型：CLI + 跨组件集成
+  - type id：`cli`
+  - 是否跨组件：是（组件链路：ci.sh → install → lint → typecheck → test → root-name-check → naming-check → db:check）
+
+---
+
+- Task-14：创建 docs 子目录结构
+  - 所属模块：docs/
+  - 描述：在 `docs/` 下创建 `product/`、`architecture/`、`iterations/`、`content-packs/` 子目录，各目录添加 `.gitkeep` 占位
+  - 涉及接口/方法：无
+  - 输入：无
+  - 输出：`ls docs/` 可见四个子目录；docs/00-product-blueprint.md 等文档文件存在
+  - 产出类型：目录结构
+  - 功能类型：none
+  - type id：`none`
+  - 是否跨组件：否
