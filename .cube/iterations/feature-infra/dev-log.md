@@ -39,9 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-06：初始化 packages/platform-adapters 目录占位
-Phase: green
-Started at: 2026-05-10 23:41:47
+Next task: Task-07：初始化 apps/api-server NestJS 基础框架
+Phase: locked
+Previous completed: Task-06 at 2026-05-10 23:43:15
 
 ## Notes
 
