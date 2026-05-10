@@ -40,7 +40,10 @@ tasks:
     test_total: 4
   - task: "Task-05：初始化 packages/content-packs/novel-pack"
     test_file: index.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-10 23:13:08"
+    test_passed: 2
+    test_total: 2
   - task: "Task-06：初始化 packages/platform-adapters 目录占位"
     test_file: platform-adapters.test.ts
     phase: locked

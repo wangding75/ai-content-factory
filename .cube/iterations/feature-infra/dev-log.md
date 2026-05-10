@@ -40,8 +40,8 @@ For each task:
 ## Current Cursor
 
 Next task: Task-05：初始化 packages/content-packs/novel-pack
-Phase: locked
-Previous completed: Task-04 at 2026-05-10 22:51:21
+Phase: green
+Started at: 2026-05-10 23:13:08
 
 ## Notes
 
