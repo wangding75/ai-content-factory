@@ -103,7 +103,8 @@ tasks:
     test_total: 4
   - task: "Task-14：创建 docs 子目录结构"
     test_file: docs-structure.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-11 00:56:22"
+    completed_at: "2026-05-11 00:56:59"
     test_passed: 2
     test_total: 2
