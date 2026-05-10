@@ -39,8 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-01：初始化根目录 Monorepo 配置
-Phase: locked
+Next task: Task-02：创建 .env.example 环境变量模板
+Phase: green
+Started at: 2026-05-10 21:50:14
 
 ## Notes
 
