@@ -1,3 +1,3 @@
 export class HealthStatusDto {
-  status!: string;
+  status: 'ok' = 'ok';
 }
