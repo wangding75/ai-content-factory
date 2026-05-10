@@ -75,8 +75,9 @@ tasks:
     test_total: 1
   - task: "Task-10：集成 Prisma + PrismaService"
     test_file: prisma.service.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-11 00:45:30"
+    completed_at: "2026-05-11 00:48:10"
     test_passed: 3
     test_total: 3
   - task: "Task-11：实现 GET /health 接口"
