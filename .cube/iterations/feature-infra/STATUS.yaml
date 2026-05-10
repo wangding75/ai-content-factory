@@ -26,7 +26,10 @@ tasks:
     test_total: 2
   - task: "Task-03：初始化 packages/shared"
     test_file: index.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-10 22:39:31"
+    test_passed: 2
+    test_total: 2
   - task: "Task-04：初始化 packages/core 并建立命名约束"
     test_file: core-naming-boundary.test.ts
     phase: locked
