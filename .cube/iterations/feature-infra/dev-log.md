@@ -39,9 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-08：集成 @nestjs/config + Joi 配置校验
-Phase: green
-Started at: 2026-05-10 23:50:49
+Next task: Task-09：集成 nestjs-pino 结构化日志
+Phase: locked
+Previous completed: Task-08 at 2026-05-10 23:54:26
 
 ## Notes
 
