@@ -54,8 +54,9 @@ tasks:
     test_total: 2
   - task: "Task-07：初始化 apps/api-server NestJS 基础框架"
     test_file: api-server-scaffold.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-10 23:46:01"
+    completed_at: "2026-05-10 23:47:39"
     test_passed: 2
     test_total: 2
   - task: "Task-08：集成 @nestjs/config + Joi 配置校验"
