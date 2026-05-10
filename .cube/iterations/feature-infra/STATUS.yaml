@@ -96,7 +96,10 @@ tasks:
     test_total: 2
   - task: "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
     test_file: ci.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-11 00:55:15"
+    test_passed: 4
+    test_total: 4
   - task: "Task-14：创建 docs 子目录结构"
     test_file: docs-structure.test.ts
     phase: locked
