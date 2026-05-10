@@ -32,7 +32,8 @@ modules:
     source_dir: packages/shared/src
     test_dir: packages/shared/src
   - name: root
-    source_dir: "."
+    source_dir: scripts
+    test_dir: scripts
 
 language_config:
   build_tool: vitest
@@ -42,3 +43,7 @@ language_config:
   green_test_command: "pnpm vitest run"
   test_command_single: "pnpm vitest run {{class}}"
   test_file_pattern: "*.test.ts"
+  test_method_pattern: "\\bit\\(|\\btest\\("
+  schema_file_pattern: "*.ts"
+  model_regex: "^export\\s+(?:interface|type|class)\\s+(\\w+)"
+  error_regex: "^export\\s+const\\s+([A-Z][A-Z0-9_]+)\\s*="

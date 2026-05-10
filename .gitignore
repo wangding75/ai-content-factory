@@ -1,11 +1,14 @@
 # Dependencies
 node_modules/
+node_modules
 .pnpm-store/
 
 # Build output
 dist/
+dist
 build/
 .next/
+.next
 out/
 
 # Environment

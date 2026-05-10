@@ -1,0 +1,57 @@
+# STATUS.yaml — Per-task TDD development progress
+# AI reads this file at session start to recover context
+# Update phase after completing each task
+#
+# phase values: locked | green | done
+# tracking fields (added during execution): started_at, completed_at, test_passed, test_total
+
+stage: 04-development
+project: ai-content-factory
+branch: feature/infra
+
+tasks:
+  - task: "Task-01：初始化根目录 Monorepo 配置"
+    test_file: root-scaffold.test.ts
+    phase: green
+    started_at: "2026-05-10 20:40:42"
+    test_passed: 4
+    test_total: 4
+  - task: "Task-02：创建 .env.example 环境变量模板"
+    test_file: env-template.test.ts
+    phase: locked
+  - task: "Task-03：初始化 packages/shared"
+    test_file: index.test.ts
+    phase: locked
+  - task: "Task-04：初始化 packages/core 并建立命名约束"
+    test_file: core-naming-boundary.test.ts
+    phase: locked
+  - task: "Task-05：初始化 packages/content-packs/novel-pack"
+    test_file: index.test.ts
+    phase: locked
+  - task: "Task-06：初始化 packages/platform-adapters 目录占位"
+    test_file: platform-adapters.test.ts
+    phase: locked
+  - task: "Task-07：初始化 apps/api-server NestJS 基础框架"
+    test_file: api-server-scaffold.test.ts
+    phase: locked
+  - task: "Task-08：集成 @nestjs/config + Joi 配置校验"
+    test_file: configuration.test.ts
+    phase: locked
+  - task: "Task-09：集成 nestjs-pino 结构化日志"
+    test_file: app.test.ts
+    phase: locked
+  - task: "Task-10：集成 Prisma + PrismaService"
+    test_file: prisma.service.test.ts
+    phase: locked
+  - task: "Task-11：实现 GET /health 接口"
+    test_file: health.controller.test.ts
+    phase: locked
+  - task: "Task-12：初始化 apps/web-admin Next.js 应用"
+    test_file: page.test.tsx
+    phase: locked
+  - task: "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+    test_file: ci.test.ts
+    phase: locked
+  - task: "Task-14：创建 docs 子目录结构"
+    test_file: docs-structure.test.ts
+    phase: locked

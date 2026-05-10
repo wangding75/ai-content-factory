@@ -1,117 +1,98 @@
 tasks:
-  # Task-01: none type — no test file (Monorepo config is structural, not behavior)
-  - task: "初始化根目录 Monorepo 配置"
-    module: root
-    test_file: null
-    test_cases: 0
-    note: "type id: none — structural files (pnpm-workspace.yaml, tsconfig.base.json, .gitignore); no testable behavior"
+  - task: "Task-01：初始化根目录 Monorepo 配置"
+    module: scripts
+    test_file: root-scaffold.test.ts
+    test_cases: 4
 
-  # Task-02: none type — no test file (.env.example is a static template)
-  - task: "创建 .env.example 环境变量模板"
-    module: root
-    test_file: null
-    test_cases: 0
-    note: "type id: none — static template file; .env.example correctness validated by Task-08 config tests"
+  - task: "Task-02：创建 .env.example 环境变量模板"
+    module: scripts
+    test_file: env-template.test.ts
+    test_cases: 2
 
-  # Task-03: library — empty placeholder module
-  - task: "初始化 packages/shared"
+  - task: "Task-03：初始化 packages/shared"
     module: packages/shared
-    test_file: packages/shared/src/index.test.ts
+    test_file: index.test.ts
     test_cases: 2
 
-  # Task-04: library — empty placeholder module with naming constraint
-  - task: "初始化 packages/core 并建立命名约束"
-    module: packages/core
-    test_file: packages/core/src/index.test.ts
-    test_cases: 2
+  - task: "Task-04：初始化 packages/core 并建立命名约束"
+    module: scripts
+    test_file: core-naming-boundary.test.ts
+    test_cases: 4
 
-  # Task-05: library — empty placeholder module
-  - task: "初始化 packages/content-packs/novel-pack"
+  - task: "Task-05：初始化 packages/content-packs/novel-pack"
     module: packages/content-packs/novel-pack
-    test_file: packages/content-packs/novel-pack/src/index.test.ts
+    test_file: index.test.ts
     test_cases: 2
 
-  # Task-06: none type — directory placeholder only
-  - task: "初始化 packages/platform-adapters 目录占位"
-    module: packages/platform-adapters
-    test_file: null
-    test_cases: 0
-    note: "type id: none — package.json + README.md placeholder; no testable behavior"
+  - task: "Task-06：初始化 packages/platform-adapters 目录占位"
+    module: scripts
+    test_file: platform-adapters.test.ts
+    test_cases: 2
 
-  # Task-07: none type — NestJS bootstrap covered by Task-11 E2E
-  - task: "初始化 apps/api-server NestJS 基础框架"
-    module: apps/api-server
-    test_file: null
-    test_cases: 0
-    note: "type id: none — app startup validated by Task-11 GET /health E2E test; no independent test"
+  - task: "Task-07：初始化 apps/api-server NestJS 基础框架"
+    module: scripts
+    test_file: api-server-scaffold.test.ts
+    test_cases: 2
 
-  # Task-08: library — Joi config validation schema
-  - task: "集成 @nestjs/config + Joi 配置校验"
+  - task: "Task-08：集成 @nestjs/config + Joi 配置校验"
     module: apps/api-server/config
-    test_file: apps/api-server/src/config/configuration.test.ts
+    test_file: configuration.test.ts
     test_cases: 5
 
-  # Task-09: library — nestjs-pino Logger registration
-  - task: "集成 nestjs-pino 结构化日志"
+  - task: "Task-09：集成 nestjs-pino 结构化日志"
     module: apps/api-server
-    test_file: apps/api-server/src/app.test.ts
+    test_file: app.test.ts
     test_cases: 1
-    note: "2 additional it.todo entries: JSON field structure (timestamp/level/module/message) and LOG_LEVEL from ConfigService — require stdout capture, deferred"
+    note: "2 additional it.todo entries: JSON field structure and LOG_LEVEL binding require stdout capture; executable DI binding remains red phase."
 
-  # Task-10: library — PrismaService lifecycle hooks
-  - task: "集成 Prisma + PrismaService"
+  - task: "Task-10：集成 Prisma + PrismaService"
     module: apps/api-server/prisma
-    test_file: apps/api-server/src/prisma/prisma.service.test.ts
+    test_file: prisma.service.test.ts
     test_cases: 3
 
-  # Task-11 (service layer): web-e2e — HealthService unit test
-  - task: "实现 GET /health 接口"
-    module: apps/api-server/health/service
-    test_file: apps/api-server/src/health/health.service.test.ts
-    test_cases: 1
-
-  # Task-11 (controller layer): web-e2e — HealthController E2E test
-  - task: "实现 GET /health 接口"
+  - task: "Task-11：实现 GET /health 接口"
     module: apps/api-server/health/controller
-    test_file: apps/api-server/src/health/health.controller.test.ts
+    test_file: health.controller.test.ts
     test_cases: 2
 
-  # Task-12: web-e2e — Next.js homepage component
-  - task: "初始化 apps/web-admin Next.js 应用"
+  - task: "Task-12：初始化 apps/web-admin Next.js 应用"
     module: apps/web-admin
-    test_file: apps/web-admin/src/app/page.test.tsx
+    test_file: page.test.tsx
     test_cases: 2
-    note: "1 additional it.todo: HTTP 200 accessibility requires next start E2E environment"
+    note: "HTTP 200 browser accessibility is covered in Stage 05 with running Next.js server; component rendering and content contract are red-phase tests here."
 
-  # Task-13: cli — CI script invariants
-  - task: "实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+  - task: "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
     module: scripts
-    test_file: scripts/ci.test.ts
+    test_file: ci.test.ts
     test_cases: 4
-    note: "2 additional it.todo: STEP FAILED exit-code behavior (requires full dev env chain), pnpm db:check (requires live PostgreSQL)"
+    note: "Covers root-name-check, ci.sh existence, run_step failure marker, and unreachable db:check non-zero exit."
 
-  # Task-14: none type — docs directory structure
-  - task: "创建 docs 子目录结构"
-    module: docs
-    test_file: null
-    test_cases: 0
-    note: "type id: none — directory structure with .gitkeep; no testable behavior"
+  - task: "Task-14：创建 docs 子目录结构"
+    module: scripts
+    test_file: docs-structure.test.ts
+    test_cases: 2
 
 type_tests:
   - type: web-e2e
     standard: standards/testing/web-e2e.md
-    test_file: apps/api-server/src/health/health.controller.test.ts
+    test_file: health.controller.test.ts
     covers:
-      - "实现 GET /health 接口"
+      - "Task-11：实现 GET /health 接口"
 
   - type: web-e2e
     standard: standards/testing/web-e2e.md
-    test_file: apps/web-admin/src/app/page.test.tsx
+    test_file: page.test.tsx
     covers:
-      - "初始化 apps/web-admin Next.js 应用"
+      - "Task-12：初始化 apps/web-admin Next.js 应用"
 
   - type: cli
     standard: standards/testing/cli.md
-    test_file: scripts/ci.test.ts
+    test_file: ci.test.ts
     covers:
-      - "实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+      - "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: ci.test.ts
+    covers:
+      - "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"

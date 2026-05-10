@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-05-10T12:24:49.974Z",
+  "project_root": "/mnt/d/git/ai-content-factory",
+  "dirs": [
+    "apps/web-admin/src",
+    "apps/api-server/src",
+    "packages/core/src",
+    "packages/shared/src",
+    "scripts"
+  ]
+}
