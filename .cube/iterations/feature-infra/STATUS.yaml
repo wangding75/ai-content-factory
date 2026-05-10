@@ -82,7 +82,10 @@ tasks:
     test_total: 3
   - task: "Task-11：实现 GET /health 接口"
     test_file: health.controller.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-11 00:48:38"
+    test_passed: 3
+    test_total: 3
   - task: "Task-12：初始化 apps/web-admin Next.js 应用"
     test_file: page.test.tsx
     phase: locked

@@ -8,6 +8,6 @@ export class HealthController {
 
   @Get('/health')
   check(): HealthStatusDto {
-    throw new Error('not implemented');
+    return this.healthService.getStatus();
   }
 }
