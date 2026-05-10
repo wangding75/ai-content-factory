@@ -5,7 +5,7 @@ if [ "$#" -eq 3 ] && [ "$1" = "-riqE" ]; then
   pattern="$2"
   target="$3"
 
-  if find "$target" -print 2>/dev/null | /usr/bin/grep -iqE "$pattern"; then
+  if [ -d "$target" ] && (cd "$target" && find . -print | /usr/bin/grep -iqE "$pattern"); then
     exit 0
   fi
 
