@@ -19,8 +19,9 @@ tasks:
     test_total: 4
   - task: "Task-02：创建 .env.example 环境变量模板"
     test_file: env-template.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-10 21:50:14"
+    completed_at: "2026-05-10 21:51:59"
     test_passed: 2
     test_total: 2
   - task: "Task-03：初始化 packages/shared"
