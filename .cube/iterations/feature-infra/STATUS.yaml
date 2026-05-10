@@ -26,8 +26,9 @@ tasks:
     test_total: 2
   - task: "Task-03：初始化 packages/shared"
     test_file: index.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-10 22:39:31"
+    completed_at: "2026-05-10 22:41:38"
     test_passed: 2
     test_total: 2
   - task: "Task-04：初始化 packages/core 并建立命名约束"

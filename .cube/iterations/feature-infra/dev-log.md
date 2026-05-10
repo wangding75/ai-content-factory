@@ -39,9 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-03：初始化 packages/shared
-Phase: green
-Started at: 2026-05-10 22:39:31
+Next task: Task-04：初始化 packages/core 并建立命名约束
+Phase: locked
+Previous completed: Task-03 at 2026-05-10 22:41:38
 
 ## Notes
 
