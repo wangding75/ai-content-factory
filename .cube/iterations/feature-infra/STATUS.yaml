@@ -68,8 +68,9 @@ tasks:
     test_total: 5
   - task: "Task-09：集成 nestjs-pino 结构化日志"
     test_file: app.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-11 00:26:58"
+    completed_at: "2026-05-11 00:29:57"
     test_passed: 1
     test_total: 1
   - task: "Task-10：集成 Prisma + PrismaService"
