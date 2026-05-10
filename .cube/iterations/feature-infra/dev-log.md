@@ -39,9 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）
-Phase: green
-Started at: 2026-05-11 00:55:15
+Next task: Task-14：创建 docs 子目录结构
+Phase: locked
+Previous completed: Task-13 at 2026-05-11 00:55:54
 
 ## Notes
 
