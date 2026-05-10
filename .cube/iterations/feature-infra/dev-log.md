@@ -39,9 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-05：初始化 packages/content-packs/novel-pack
-Phase: green
-Started at: 2026-05-10 23:13:08
+Next task: Task-06：初始化 packages/platform-adapters 目录占位
+Phase: locked
+Previous completed: Task-05 at 2026-05-10 23:14:30
 
 ## Notes
 
