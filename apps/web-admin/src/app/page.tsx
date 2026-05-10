@@ -1,3 +1,3 @@
 export default function HomePage(): JSX.Element {
-  throw new Error('not implemented');
+  return <main>AI Content Factory</main>;
 }
