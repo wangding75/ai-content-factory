@@ -12,8 +12,9 @@ branch: feature/infra
 tasks:
   - task: "Task-01：初始化根目录 Monorepo 配置"
     test_file: root-scaffold.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-10 20:40:42"
+    completed_at: "2026-05-10 20:47:54"
     test_passed: 4
     test_total: 4
   - task: "Task-02：创建 .env.example 环境变量模板"
