@@ -47,7 +47,10 @@ tasks:
     test_total: 2
   - task: "Task-06：初始化 packages/platform-adapters 目录占位"
     test_file: platform-adapters.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-10 23:41:47"
+    test_passed: 2
+    test_total: 2
   - task: "Task-07：初始化 apps/api-server NestJS 基础框架"
     test_file: api-server-scaffold.test.ts
     phase: locked
