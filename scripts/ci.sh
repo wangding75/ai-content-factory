@@ -29,6 +29,10 @@ if grep -riqE 'book|chapter|novel' packages/core/src/ 2>/dev/null; then
   exit 1
 fi
 
-run_step "db:check"   pnpm db:check
+if [ -n "${DATABASE_URL:-}" ]; then
+  run_step "db:check" pnpm db:check
+else
+  echo "==> Skipping step: db:check (DATABASE_URL not set)"
+fi
 
 echo "==> All CI steps passed."

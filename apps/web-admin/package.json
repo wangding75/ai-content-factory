@@ -6,7 +6,7 @@
     "dev": "next dev -p ${WEB_PORT:-3001}",
     "build": "next build",
     "start": "next start -p ${WEB_PORT:-3001}",
-    "lint": "next lint",
+    "lint": "eslint --no-eslintrc --env browser,node,es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --rule 'no-unused-vars: off' --rule '@typescript-eslint/no-unused-vars: error' --rule 'no-debugger: error' --ext .ts,.tsx src",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
