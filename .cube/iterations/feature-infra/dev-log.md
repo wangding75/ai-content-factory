@@ -39,9 +39,9 @@ For each task:
 
 ## Current Cursor
 
-Next task: Task-12：初始化 apps/web-admin Next.js 应用
-Phase: green
-Started at: 2026-05-11 00:53:16
+Next task: Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）
+Phase: locked
+Previous completed: Task-12 at 2026-05-11 00:54:42
 
 ## Notes
 
