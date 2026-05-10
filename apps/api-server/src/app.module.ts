@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { validationSchema } from './config/configuration';
 import { HealthModule } from './health/health.module';
@@ -12,11 +12,23 @@ import { PrismaModule } from './prisma/prisma.module';
       validationSchema,
       validationOptions: { allowUnknown: true, abortEarly: false },
     }),
-    LoggerModule.forRoot({
-      pinoHttp: {
-        level: process.env['LOG_LEVEL'] ?? 'info',
-      },
-      renameContext: 'module',
+    LoggerModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        pinoHttp: {
+          level: configService.get<string>('LOG_LEVEL', 'info'),
+          redact: {
+            paths: [
+              'req.headers.authorization',
+              'req.headers.cookie',
+              'req.headers["x-api-key"]',
+              'res.headers["set-cookie"]',
+            ],
+            remove: true,
+          },
+        },
+        renameContext: 'module',
+      }),
     }),
     PrismaModule,
     HealthModule,
