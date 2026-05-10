@@ -61,7 +61,10 @@ tasks:
     test_total: 2
   - task: "Task-08：集成 @nestjs/config + Joi 配置校验"
     test_file: configuration.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-10 23:50:49"
+    test_passed: 5
+    test_total: 5
   - task: "Task-09：集成 nestjs-pino 结构化日志"
     test_file: app.test.ts
     phase: locked
