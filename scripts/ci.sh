@@ -24,7 +24,7 @@ if [ "$PKG_NAME" != "ai-content-factory" ]; then
 fi
 
 echo "==> Running step: naming-check"
-if grep -riqE 'book|chapter|novel' packages/core/src/ 2>/dev/null; then
+if grep -riqE 'book|chapter|novel' packages/core/src/ 2>/dev/null || find packages/core/src -regextype posix-extended -iregex '.*(book|chapter|novel).*' -print -quit | grep -q .; then
   echo "STEP FAILED: naming-check - prohibited naming found in packages/core/src/" >&2
   exit 1
 fi

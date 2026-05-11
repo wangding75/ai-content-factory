@@ -31,5 +31,8 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
+# Test artifacts
+coverage/
+
 # Prisma generated
 apps/api-server/prisma/generated/

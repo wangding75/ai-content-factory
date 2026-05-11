@@ -49,8 +49,11 @@ describe('packages/core naming boundary (Task-04)', () => {
       fs.writeFileSync(path.join(coreDir, 'novel-helper.ts'), 'export const content = "test";');
 
       const result = spawnSync(
-        'grep',
-        ['-riqE', 'book|chapter|novel', 'packages/core/src/'],
+        'bash',
+        [
+          '-c',
+          "grep -riqE 'book|chapter|novel' packages/core/src/ 2>/dev/null || find packages/core/src -regextype posix-extended -iregex '.*(book|chapter|novel).*' -print -quit | grep -q .",
+        ],
         { cwd: tmpDir, encoding: 'utf-8' },
       );
       expect(result.status).toBe(0);

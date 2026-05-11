@@ -14,7 +14,10 @@ function createPrismaClient(): PrismaLifecycleClient | undefined {
     const { PrismaClient } = require('@prisma/client') as PrismaClientModule;
     return PrismaClient ? new PrismaClient() : undefined;
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'MODULE_NOT_FOUND') {
+    if (
+      (error as NodeJS.ErrnoException).code === 'MODULE_NOT_FOUND' ||
+      (error as Error).message.includes('@prisma/client did not initialize yet')
+    ) {
       return undefined;
     }
     throw error;
