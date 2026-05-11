@@ -2,8 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { validationSchema } from './config/configuration';
+import { ContentProjectsModule } from './content-projects/content-projects.module';
+import { ContentTypesModule } from './content-types/content-types.module';
 import { HealthModule } from './health/health.module';
+import { LlmProvidersModule } from './llm-providers/llm-providers.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { PromptTemplatesModule } from './prompt-templates/prompt-templates.module';
 
 @Module({
   imports: [
@@ -32,6 +36,10 @@ import { PrismaModule } from './prisma/prisma.module';
     }),
     PrismaModule,
     HealthModule,
+    ContentTypesModule,
+    ContentProjectsModule,
+    PromptTemplatesModule,
+    LlmProvidersModule,
   ],
 })
 export class AppModule {}

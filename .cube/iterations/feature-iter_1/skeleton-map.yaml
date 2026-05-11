@@ -1,0 +1,147 @@
+# Skeleton Map — Iteration 1 (feature/iter_1)
+# Format: files[] with path (relative to project root) and tasks[] exact task names from design.md.
+# Coverage requirement: 100% of Development Tasks covered.
+
+files:
+  - path: packages/shared/src/index.ts
+    type: interface
+    tasks:
+      - "Task-01：定义共享 API 响应、错误码和内容项目类型"
+
+  - path: packages/core/src/index.ts
+    type: interface
+    tasks:
+      - "Task-02：定义通用内容项目领域接口"
+
+  - path: apps/api-server/src/content-projects/content-projects.service.ts
+    type: class
+    tasks:
+      - "Task-03：新增 core 接口消费映射"
+      - "Task-06：实现内容项目 CRUD API 骨架"
+
+  - path: apps/api-server/prisma/schema.prisma
+    type: schema
+    tasks:
+      - "Task-04：新增 Prisma 数据模型"
+
+  - path: apps/api-server/src/content-types/content-types.controller.ts
+    type: class
+    tasks:
+      - "Task-05：实现内容类型查询 API 骨架"
+
+  - path: apps/api-server/src/content-types/content-types.service.ts
+    type: class
+    tasks:
+      - "Task-05：实现内容类型查询 API 骨架"
+
+  - path: apps/api-server/src/content-types/content-types.module.ts
+    type: class
+    tasks:
+      - "Task-05：实现内容类型查询 API 骨架"
+
+  - path: apps/api-server/src/common/joi-validation.pipe.ts
+    type: class
+    tasks:
+      - "Task-06：实现内容项目 CRUD API 骨架"
+      - "Task-07：实现 PromptTemplate API 骨架"
+      - "Task-08：实现默认 LLM Provider API 骨架"
+
+  - path: apps/api-server/src/content-projects/content-projects.controller.ts
+    type: class
+    tasks:
+      - "Task-06：实现内容项目 CRUD API 骨架"
+
+  - path: apps/api-server/src/content-projects/content-projects.validation.ts
+    type: interface
+    tasks:
+      - "Task-06：实现内容项目 CRUD API 骨架"
+
+  - path: apps/api-server/src/content-projects/content-projects.module.ts
+    type: class
+    tasks:
+      - "Task-06：实现内容项目 CRUD API 骨架"
+
+  - path: apps/api-server/src/prompt-templates/prompt-templates.controller.ts
+    type: class
+    tasks:
+      - "Task-07：实现 PromptTemplate API 骨架"
+
+  - path: apps/api-server/src/prompt-templates/prompt-templates.validation.ts
+    type: interface
+    tasks:
+      - "Task-07：实现 PromptTemplate API 骨架"
+
+  - path: apps/api-server/src/prompt-templates/prompt-templates.service.ts
+    type: class
+    tasks:
+      - "Task-07：实现 PromptTemplate API 骨架"
+
+  - path: apps/api-server/src/prompt-templates/prompt-templates.module.ts
+    type: class
+    tasks:
+      - "Task-07：实现 PromptTemplate API 骨架"
+
+  - path: apps/api-server/src/llm-providers/llm-providers.controller.ts
+    type: class
+    tasks:
+      - "Task-08：实现默认 LLM Provider API 骨架"
+
+  - path: apps/api-server/src/llm-providers/llm-providers.validation.ts
+    type: interface
+    tasks:
+      - "Task-08：实现默认 LLM Provider API 骨架"
+
+  - path: apps/api-server/src/llm-providers/llm-providers.service.ts
+    type: class
+    tasks:
+      - "Task-08：实现默认 LLM Provider API 骨架"
+
+  - path: apps/api-server/src/llm-providers/llm-providers.module.ts
+    type: class
+    tasks:
+      - "Task-08：实现默认 LLM Provider API 骨架"
+
+  - path: apps/api-server/src/app.module.ts
+    type: class
+    tasks:
+      - "Task-09：挂载 API 业务模块"
+
+  - path: apps/web-admin/src/lib/api-client.ts
+    type: interface
+    tasks:
+      - "Task-10：实现 Web API Client 骨架"
+
+  - path: apps/web-admin/src/app/page.tsx
+    type: component
+    tasks:
+      - "Task-11：实现 Web 管理台基础导航骨架"
+
+  - path: apps/web-admin/src/app/content-projects/page.tsx
+    type: component
+    tasks:
+      - "Task-12：实现内容项目 Web 页面骨架"
+
+  - path: apps/web-admin/src/app/content-projects/new/page.tsx
+    type: component
+    tasks:
+      - "Task-12：实现内容项目 Web 页面骨架"
+
+  - path: apps/web-admin/src/app/content-projects/[id]/page.tsx
+    type: component
+    tasks:
+      - "Task-12：实现内容项目 Web 页面骨架"
+
+  - path: apps/web-admin/src/app/prompt-templates/page.tsx
+    type: component
+    tasks:
+      - "Task-13：实现 PromptTemplate Web 页面骨架"
+
+  - path: apps/web-admin/src/app/prompt-templates/[id]/page.tsx
+    type: component
+    tasks:
+      - "Task-13：实现 PromptTemplate Web 页面骨架"
+
+  - path: apps/web-admin/src/app/llm-provider/page.tsx
+    type: component
+    tasks:
+      - "Task-14：实现 LLM Provider Web 页面骨架"
