@@ -1,8 +1,7 @@
-import { describe, it, expect, vi, afterEach } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Logger } from 'nestjs-pino';
 
-// Mock @prisma/client because prisma generate cannot run without models (Iteration 0 has no models)
 vi.mock('@prisma/client', () => ({
   PrismaClient: class MockPrismaClient {
     $connect = vi.fn().mockResolvedValue(undefined);
@@ -11,9 +10,14 @@ vi.mock('@prisma/client', () => ({
 }));
 
 import { AppModule } from './app.module';
+import { ContentProjectsController } from './content-projects/content-projects.controller';
+import { ContentTypesController } from './content-types/content-types.controller';
+import { HealthController } from './health/health.controller';
+import { LlmProvidersController } from './llm-providers/llm-providers.controller';
 import { PrismaService } from './prisma/prisma.service';
+import { PromptTemplatesController } from './prompt-templates/prompt-templates.controller';
 
-describe('AppModule - Structured Logging (Task-09)', () => {
+describe('AppModule integration (Task-09)', () => {
   let moduleRef: TestingModule | undefined;
 
   afterEach(async () => {
@@ -21,17 +25,32 @@ describe('AppModule - Structured Logging (Task-09)', () => {
     moduleRef = undefined;
   });
 
-  it('registers pino Logger via LoggerModule in AppModule', async () => {
-    moduleRef = await Test.createTestingModule({ imports: [AppModule] })
+  async function compileAppModule(): Promise<TestingModule> {
+    return Test.createTestingModule({ imports: [AppModule] })
       .overrideProvider(PrismaService)
       .useValue({ onModuleInit: vi.fn().mockResolvedValue(undefined) })
       .compile();
+  }
 
-    // FAILS (Red phase): Logger not registered — LoggerModule is not imported in AppModule
+  it('keeps the health controller available when business modules are mounted', async () => {
+    moduleRef = await compileAppModule();
+
+    expect(moduleRef.get(HealthController, { strict: false })).toBeDefined();
+  });
+
+  it('registers structured logging through LoggerModule', async () => {
+    moduleRef = await compileAppModule();
+
     const logger = moduleRef.get(Logger, { strict: false });
     expect(logger).toBeDefined();
   });
 
-  it.todo('Logger uses pino JSON format with timestamp, level, module, message fields');
-  it.todo('LOG_LEVEL is read from ConfigService (not hardcoded)');
+  it('loads all content project entry API modules', async () => {
+    moduleRef = await compileAppModule();
+
+    expect(moduleRef.get(ContentTypesController, { strict: false })).toBeDefined();
+    expect(moduleRef.get(ContentProjectsController, { strict: false })).toBeDefined();
+    expect(moduleRef.get(PromptTemplatesController, { strict: false })).toBeDefined();
+    expect(moduleRef.get(LlmProvidersController, { strict: false })).toBeDefined();
+  });
 });
