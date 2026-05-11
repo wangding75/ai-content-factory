@@ -1,0 +1,28 @@
+{
+  "name": "@ai-content-factory/web-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p ${WEB_PORT:-3001}",
+    "build": "next build",
+    "start": "next start -p ${WEB_PORT:-3001}",
+    "lint": "eslint --no-eslintrc --env browser,node,es2022 --parser @typescript-eslint/parser --plugin @typescript-eslint --rule 'no-unused-vars: off' --rule '@typescript-eslint/no-unused-vars: error' --rule 'no-debugger: error' --ext .ts,.tsx src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "next": "15.5.15",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

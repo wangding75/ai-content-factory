@@ -1,0 +1,49 @@
+project:
+  name: ai-content-factory
+  language: typescript
+  structure: multi-module
+
+stages:
+  - id: 01-prd
+    name: PRD
+  - id: 02-design
+    name: Design
+  - id: 03-test-cases
+    name: Test Cases
+  - id: 04-development
+    name: Development
+    on_enter:
+      - create_status_yaml
+      - lock_tests
+  - id: 05-testing
+    name: Testing
+
+modules:
+  - name: apps/web-admin
+    source_dir: apps/web-admin/src
+    test_dir: apps/web-admin/src
+  - name: apps/api-server
+    source_dir: apps/api-server/src
+    test_dir: apps/api-server/src
+  - name: packages/core
+    source_dir: packages/core/src
+    test_dir: packages/core/src
+  - name: packages/shared
+    source_dir: packages/shared/src
+    test_dir: packages/shared/src
+  - name: root
+    source_dir: scripts
+    test_dir: scripts
+
+language_config:
+  build_tool: vitest
+  compile_command: "pnpm -r typecheck"
+  test_command: "pnpm vitest run"
+  red_test_command: "pnpm vitest run"
+  green_test_command: "pnpm vitest run"
+  test_command_single: "pnpm vitest run {{class}}"
+  test_file_pattern: "*.test.ts"
+  test_method_pattern: "\\bit\\(|\\btest\\("
+  schema_file_pattern: "*.ts"
+  model_regex: "^export\\s+(?:interface|type|class)\\s+(\\w+)"
+  error_regex: "^export\\s+const\\s+([A-Z][A-Z0-9_]+)\\s*="

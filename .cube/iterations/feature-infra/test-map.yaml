@@ -1,0 +1,98 @@
+tasks:
+  - task: "Task-01：初始化根目录 Monorepo 配置"
+    module: scripts
+    test_file: root-scaffold.test.ts
+    test_cases: 4
+
+  - task: "Task-02：创建 .env.example 环境变量模板"
+    module: scripts
+    test_file: env-template.test.ts
+    test_cases: 2
+
+  - task: "Task-03：初始化 packages/shared"
+    module: packages/shared
+    test_file: index.test.ts
+    test_cases: 2
+
+  - task: "Task-04：初始化 packages/core 并建立命名约束"
+    module: scripts
+    test_file: core-naming-boundary.test.ts
+    test_cases: 4
+
+  - task: "Task-05：初始化 packages/content-packs/novel-pack"
+    module: packages/content-packs/novel-pack
+    test_file: index.test.ts
+    test_cases: 2
+
+  - task: "Task-06：初始化 packages/platform-adapters 目录占位"
+    module: scripts
+    test_file: platform-adapters.test.ts
+    test_cases: 2
+
+  - task: "Task-07：初始化 apps/api-server NestJS 基础框架"
+    module: scripts
+    test_file: api-server-scaffold.test.ts
+    test_cases: 2
+
+  - task: "Task-08：集成 @nestjs/config + Joi 配置校验"
+    module: apps/api-server/config
+    test_file: configuration.test.ts
+    test_cases: 5
+
+  - task: "Task-09：集成 nestjs-pino 结构化日志"
+    module: apps/api-server
+    test_file: app.test.ts
+    test_cases: 1
+    note: "2 additional it.todo entries: JSON field structure and LOG_LEVEL binding require stdout capture; executable DI binding remains red phase."
+
+  - task: "Task-10：集成 Prisma + PrismaService"
+    module: apps/api-server/prisma
+    test_file: prisma.service.test.ts
+    test_cases: 3
+
+  - task: "Task-11：实现 GET /health 接口"
+    module: apps/api-server/health/controller
+    test_file: health.controller.test.ts
+    test_cases: 2
+
+  - task: "Task-12：初始化 apps/web-admin Next.js 应用"
+    module: apps/web-admin
+    test_file: page.test.tsx
+    test_cases: 2
+    note: "HTTP 200 browser accessibility is covered in Stage 05 with running Next.js server; component rendering and content contract are red-phase tests here."
+
+  - task: "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+    module: scripts
+    test_file: ci.test.ts
+    test_cases: 4
+    note: "Covers root-name-check, ci.sh existence, run_step failure marker, and unreachable db:check non-zero exit."
+
+  - task: "Task-14：创建 docs 子目录结构"
+    module: scripts
+    test_file: docs-structure.test.ts
+    test_cases: 2
+
+type_tests:
+  - type: web-e2e
+    standard: standards/testing/web-e2e.md
+    test_file: health.controller.test.ts
+    covers:
+      - "Task-11：实现 GET /health 接口"
+
+  - type: web-e2e
+    standard: standards/testing/web-e2e.md
+    test_file: page.test.tsx
+    covers:
+      - "Task-12：初始化 apps/web-admin Next.js 应用"
+
+  - type: cli
+    standard: standards/testing/cli.md
+    test_file: ci.test.ts
+    covers:
+      - "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: ci.test.ts
+    covers:
+      - "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"

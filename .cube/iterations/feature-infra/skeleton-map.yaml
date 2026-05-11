@@ -1,0 +1,97 @@
+# Skeleton Map — Iteration 0 (feature/infra)
+# Format: files[] with path (relative to project root, resolved via root source_dir)
+#         and tasks[] (exact task names matching Development Tasks in design.md)
+# Coverage requirement: 100% of Development Tasks covered.
+
+files:
+  - path: pnpm-workspace.yaml
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
+
+  - path: package.json
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
+
+  - path: tsconfig.base.json
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
+
+  - path: .gitignore
+    tasks:
+      - "Task-01：初始化根目录 Monorepo 配置"
+
+  - path: .env.example
+    tasks:
+      - "Task-02：创建 .env.example 环境变量模板"
+
+  - path: packages/shared/src/index.ts
+    tasks:
+      - "Task-03：初始化 packages/shared"
+
+  - path: packages/core/src/index.ts
+    tasks:
+      - "Task-04：初始化 packages/core 并建立命名约束"
+
+  - path: packages/content-packs/novel-pack/src/index.ts
+    tasks:
+      - "Task-05：初始化 packages/content-packs/novel-pack"
+
+  - path: packages/platform-adapters/README.md
+    tasks:
+      - "Task-06：初始化 packages/platform-adapters 目录占位"
+
+  - path: apps/api-server/src/main.ts
+    tasks:
+      - "Task-07：初始化 apps/api-server NestJS 基础框架"
+
+  - path: apps/api-server/src/app.module.ts
+    tasks:
+      - "Task-07：初始化 apps/api-server NestJS 基础框架"
+      - "Task-08：集成 @nestjs/config + Joi 配置校验"
+      - "Task-09：集成 nestjs-pino 结构化日志"
+      - "Task-10：集成 Prisma + PrismaService"
+      - "Task-11：实现 GET /health 接口"
+
+  - path: apps/api-server/src/config/configuration.ts
+    tasks:
+      - "Task-08：集成 @nestjs/config + Joi 配置校验"
+
+  - path: apps/api-server/src/prisma/prisma.service.ts
+    tasks:
+      - "Task-10：集成 Prisma + PrismaService"
+
+  - path: apps/api-server/src/prisma/prisma.module.ts
+    tasks:
+      - "Task-10：集成 Prisma + PrismaService"
+
+  - path: apps/api-server/src/health/health.service.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
+
+  - path: apps/api-server/src/health/health.controller.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
+
+  - path: apps/api-server/src/health/health.module.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
+
+  - path: apps/api-server/src/health/dto/health-status.dto.ts
+    tasks:
+      - "Task-11：实现 GET /health 接口"
+
+  - path: apps/web-admin/src/app/page.tsx
+    tasks:
+      - "Task-12：初始化 apps/web-admin Next.js 应用"
+
+  - path: apps/web-admin/src/app/layout.tsx
+    tasks:
+      - "Task-12：初始化 apps/web-admin Next.js 应用"
+
+  - path: scripts/ci.sh
+    tasks:
+      - "Task-13：实现 CI 检查脚本（含命名边界检测和根目录名检测）"
+
+  - path: docs/iteration-README.md
+    tasks:
+      - "Task-14：创建 docs 子目录结构"

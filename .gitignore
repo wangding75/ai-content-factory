@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+node_modules
+.pnpm-store/
+
+# Build output
+dist/
+dist
+build/
+.next/
+.next
+out/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+coverage/
+
+# Prisma generated
+apps/api-server/prisma/generated/
