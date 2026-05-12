@@ -145,3 +145,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 9：Task-09：挂载 API 业务模块（完成时间：2026-05-12 14:17）
+
+- 测试文件：apps/api-server/src/app.test.ts
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 []（app module 合约已满足）
+- phase：locked → green → done
+
+---
