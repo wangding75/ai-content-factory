@@ -96,7 +96,10 @@ tasks:
     completed_at: "2026-05-12 14:47"
   - task: "Task-13：实现 PromptTemplate Web 页面骨架"
     test_file: apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 14:48"
+    test_passed: 3
+    test_total: 3
   - task: "Task-14：实现 LLM Provider Web 页面骨架"
     test_file: apps/web-admin/src/app/llm-provider/page.test.tsx
     phase: locked
