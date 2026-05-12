@@ -1,13 +1,13 @@
 branch: feature/iter_1
-current_stage: 04-development
+current_stage: 05-testing
 created: 2026-05-11
 
 stages:
   01-prd: PASS
   02-design: PASS
   03-test-cases: PASS
-  04-development: IN_PROGRESS
-  05-testing: PENDING
+  04-development: PASS
+  05-testing: IN_PROGRESS
 
 history:
   - time: "2026-05-11 05:07:25"
@@ -20,3 +20,6 @@ history:
   - time: "2026-05-12 01:55:29"
     action: advance
     detail: "03-test-cases → 04-development"
+  - time: "2026-05-12 08:10:06"
+    action: advance
+    detail: "04-development → 05-testing"
