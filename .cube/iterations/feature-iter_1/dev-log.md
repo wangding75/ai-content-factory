@@ -136,3 +136,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 8：Task-08：实现默认 LLM Provider API 骨架（完成时间：2026-05-12 14:02）
+
+- 测试文件：apps/api-server/src/llm-providers/llm-providers.integration.test.ts
+- 测试结果：10/10 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/llm-providers/llm-providers.service.ts]（与计划不一致：validation 已满足无需修改）
+- phase：locked → green → done
+
+---
