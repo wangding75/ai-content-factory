@@ -47,10 +47,11 @@ tasks:
     completed_at: "2026-05-12 13:45"
   - task: "Task-06：实现内容项目 CRUD API 骨架"
     test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-12 13:47"
     test_passed: 18
     test_total: 18
+    completed_at: "2026-05-12 13:48"
   - task: "Task-07：实现 PromptTemplate API 骨架"
     test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
     phase: locked

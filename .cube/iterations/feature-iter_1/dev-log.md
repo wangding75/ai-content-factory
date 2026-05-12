@@ -118,3 +118,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 6：Task-06：实现内容项目 CRUD API 骨架（完成时间：2026-05-12 13:48）
+
+- 测试文件：apps/api-server/src/content-projects/content-projects.integration.test.ts
+- 测试结果：18/18 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/content-projects/content-projects.service.ts]（与计划不一致：validation 已满足无需修改）
+- phase：locked → green → done
+
+---
