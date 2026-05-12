@@ -1,0 +1,54 @@
+# STATUS.yaml — Per-task TDD development progress
+# AI reads this file at session start to recover context
+# Update phase after completing each task
+#
+# phase values: locked | green | done
+# tracking fields (added during execution): started_at, completed_at, test_passed, test_total
+
+stage: 04-development
+project: ai-content-factory
+branch: feature/iter_1
+
+tasks:
+  - task: "Task-01：定义共享 API 响应、错误码和内容项目类型"
+    test_file: packages/shared/src/index.test.ts
+    phase: locked
+  - task: "Task-02：定义通用内容项目领域接口"
+    test_file: packages/core/src/index.test.ts
+    phase: locked
+  - task: "Task-03：新增 core 接口消费映射"
+    test_file: apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
+    phase: locked
+  - task: "Task-04：新增 Prisma 数据模型"
+    test_file: apps/api-server/src/prisma/schema.contract.test.ts
+    phase: locked
+  - task: "Task-05：实现内容类型查询 API 骨架"
+    test_file: apps/api-server/src/content-types/content-types.integration.test.ts
+    phase: locked
+  - task: "Task-06：实现内容项目 CRUD API 骨架"
+    test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
+    phase: locked
+  - task: "Task-07：实现 PromptTemplate API 骨架"
+    test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
+    phase: locked
+  - task: "Task-08：实现默认 LLM Provider API 骨架"
+    test_file: apps/api-server/src/llm-providers/llm-providers.integration.test.ts
+    phase: locked
+  - task: "Task-09：挂载 API 业务模块"
+    test_file: apps/api-server/src/app.test.ts
+    phase: locked
+  - task: "Task-10：实现 Web API Client 骨架"
+    test_file: apps/web-admin/src/lib/api-client.test.ts
+    phase: locked
+  - task: "Task-11：实现 Web 管理台基础导航骨架"
+    test_file: apps/web-admin/src/app/page.test.tsx
+    phase: locked
+  - task: "Task-12：实现内容项目 Web 页面骨架"
+    test_file: apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
+    phase: locked
+  - task: "Task-13：实现 PromptTemplate Web 页面骨架"
+    test_file: apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
+    phase: locked
+  - task: "Task-14：实现 LLM Provider Web 页面骨架"
+    test_file: apps/web-admin/src/app/llm-provider/page.test.tsx
+    phase: locked

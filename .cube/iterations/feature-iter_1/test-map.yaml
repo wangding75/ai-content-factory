@@ -22,15 +22,15 @@ tasks:
   - task: "Task-06：实现内容项目 CRUD API 骨架"
     module: apps/api-server/content-projects
     test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
-    test_cases: 18
+    test_cases: 10
   - task: "Task-07：实现 PromptTemplate API 骨架"
     module: apps/api-server/prompt-templates
     test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
-    test_cases: 10
+    test_cases: 6
   - task: "Task-08：实现默认 LLM Provider API 骨架"
     module: apps/api-server/llm-providers
     test_file: apps/api-server/src/llm-providers/llm-providers.integration.test.ts
-    test_cases: 10
+    test_cases: 5
   - task: "Task-09：挂载 API 业务模块"
     module: apps/api-server/app-module
     test_file: apps/api-server/src/app.test.ts
@@ -38,7 +38,7 @@ tasks:
   - task: "Task-10：实现 Web API Client 骨架"
     module: apps/web-admin/lib
     test_file: apps/web-admin/src/lib/api-client.test.ts
-    test_cases: 12
+    test_cases: 5
   - task: "Task-11：实现 Web 管理台基础导航骨架"
     module: apps/web-admin/app
     test_file: apps/web-admin/src/app/page.test.tsx
