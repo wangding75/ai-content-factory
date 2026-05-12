@@ -1,4 +1,4 @@
-export type ContentProjectStatus = 'draft' | 'active' | 'archived';
+import type { ContentProjectStatus } from '@ai-content-factory/shared';
 
 export interface ContentProjectEntity {
   id: string;

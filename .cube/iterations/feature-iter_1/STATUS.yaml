@@ -19,7 +19,10 @@ tasks:
     completed_at: "2026-05-12 02:02"
   - task: "Task-02：定义通用内容项目领域接口"
     test_file: packages/core/src/index.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 02:03"
+    test_passed: 3
+    test_total: 3
   - task: "Task-03：新增 core 接口消费映射"
     test_file: apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
     phase: locked
