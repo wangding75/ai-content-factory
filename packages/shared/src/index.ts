@@ -1,4 +1,4 @@
-export const API_ERROR_CODES = [
+const API_ERROR_CODE_VALUES = [
   'VALIDATION_ERROR',
   'CONTENT_TYPES_LOAD_FAILED',
   'CONTENT_TYPE_NOT_AVAILABLE',
@@ -16,6 +16,11 @@ export const API_ERROR_CODES = [
   'LLM_PROVIDER_SAVE_FAILED',
 ] as const;
 
+export const API_ERROR_CODES = [...API_ERROR_CODE_VALUES] as readonly string[];
+
+export type ApiErrorCode = (typeof API_ERROR_CODE_VALUES)[number];
+
+
 export interface ApiSuccessResponse<T> {
   success: true;
   data: T;
@@ -32,23 +37,6 @@ export interface ApiErrorResponse {
 }
 
 export type ContentProjectStatus = 'draft' | 'active' | 'archived';
-
-export type ApiErrorCode =
-  | 'VALIDATION_ERROR'
-  | 'CONTENT_TYPES_LOAD_FAILED'
-  | 'CONTENT_TYPE_NOT_AVAILABLE'
-  | 'CONTENT_PROJECTS_LOAD_FAILED'
-  | 'CONTENT_PROJECT_NOT_FOUND'
-  | 'CONTENT_PROJECT_LOAD_FAILED'
-  | 'CONTENT_PROJECT_CREATE_FAILED'
-  | 'CONTENT_PROJECT_SAVE_FAILED'
-  | 'CONTENT_PROJECT_DELETE_FAILED'
-  | 'PROMPT_TEMPLATES_LOAD_FAILED'
-  | 'PROMPT_TEMPLATE_NOT_FOUND'
-  | 'PROMPT_TEMPLATE_LOAD_FAILED'
-  | 'PROMPT_TEMPLATE_CREATE_FAILED'
-  | 'LLM_PROVIDER_LOAD_FAILED'
-  | 'LLM_PROVIDER_SAVE_FAILED';
 
 export interface ContentTypeDto {
   id: string;

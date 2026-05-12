@@ -1,3 +1,4 @@
+import { createCipheriv, createHash, randomBytes } from 'node:crypto';
 import type {
   ApiErrorCode,
   LlmProviderSafeDto,
@@ -38,18 +39,37 @@ function apiError(code: ApiErrorCode, message: string): HttpException {
   );
 }
 
+function encryptionKey(): Buffer {
+  const key = process.env['LLM_PROVIDER_API_KEY_ENCRYPTION_KEY'];
+
+  if (!key || key.length < 32) {
+    throw apiError('LLM_PROVIDER_SAVE_FAILED', 'LLM provider encryption key is not configured');
+  }
+
+  return createHash('sha256').update(key).digest();
+}
+
 function encryptApiKey(apiKey: string): string {
-  return `encrypted:${apiKey}`;
+  const iv = randomBytes(12);
+  const cipher = createCipheriv('aes-256-gcm', encryptionKey(), iv);
+  const ciphertext = Buffer.concat([cipher.update(apiKey, 'utf8'), cipher.final()]);
+  const tag = cipher.getAuthTag();
+
+  return `aes-256-gcm:${iv.toString('base64')}:${tag.toString('base64')}:${ciphertext.toString('base64')}`;
 }
 
 function apiKeyPreview(encryptedApiKeyValue: string): string | null {
-  const apiKey = encryptedApiKeyValue.replace(/^encrypted:/, '');
-
-  if (!apiKey) {
+  if (!encryptedApiKeyValue) {
     return null;
   }
 
-  return `${apiKey.slice(0, 3)}***${apiKey.slice(-4)}`;
+  if (encryptedApiKeyValue.startsWith('encrypted:')) {
+    const apiKey = encryptedApiKeyValue.replace(/^encrypted:/, '');
+
+    return apiKey ? `${apiKey.slice(0, 3)}***${apiKey.slice(-4)}` : null;
+  }
+
+  return 'configured';
 }
 
 @Injectable()

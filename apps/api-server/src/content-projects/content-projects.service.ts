@@ -45,16 +45,36 @@ type LlmProviderRecord = {
 
 type ContentProjectsPrisma = PrismaService & {
   contentProject: {
-    findMany(): Promise<ContentProjectRecord[]>;
-    findUnique(args: { where: { id: string } }): Promise<ContentProjectRecord | null>;
-    create(args: { data: CreateContentProjectRequest & { status: ContentProjectStatus } }): Promise<ContentProjectRecord>;
-    update(args: { where: { id: string }; data: UpdateContentProjectRequest }): Promise<ContentProjectRecord>;
+    findMany(args: ContentProjectRelationArgs): Promise<ContentProjectRecord[]>;
+    findUnique(args: ContentProjectRelationArgs & { where: { id: string } }): Promise<ContentProjectRecord | null>;
+    create(args: { data: CreateContentProjectRequest & { status: ContentProjectStatus } } & ContentProjectRelationArgs): Promise<ContentProjectRecord>;
+    update(args: { where: { id: string }; data: UpdateContentProjectRequest } & ContentProjectRelationArgs): Promise<ContentProjectRecord>;
     delete(args: { where: { id: string } }): Promise<{ id: string }>;
   };
   llmProvider: {
     findUnique(args: { where: { id: 'default' } }): Promise<LlmProviderRecord | null>;
   };
 };
+
+type ContentProjectRelationArgs = {
+  include: {
+    contentType: true;
+    promptTemplates?: {
+      include: { contentType: true };
+    };
+  };
+};
+
+const contentProjectSummaryInclude = {
+  include: { contentType: true },
+} satisfies ContentProjectRelationArgs;
+
+const contentProjectDetailInclude = {
+  include: {
+    contentType: true,
+    promptTemplates: { include: { contentType: true } },
+  },
+} satisfies ContentProjectRelationArgs;
 
 function apiError(code: ApiErrorCode, message: string): HttpException {
   return new HttpException(
@@ -127,12 +147,20 @@ function toDetailDto(project: ContentProjectRecord, defaultLlmProvider: LlmProvi
 export class ContentProjectsService {
   constructor(
     private readonly contentTypesService: ContentTypesService,
-    private readonly prisma: PrismaService,
+    private readonly injectedPrisma?: PrismaService,
   ) {}
+
+  private get prisma(): PrismaService {
+    if (!this.injectedPrisma) {
+      throw apiError('CONTENT_PROJECT_LOAD_FAILED', 'Content project persistence is not configured');
+    }
+
+    return this.injectedPrisma;
+  }
 
   async listContentProjects(): Promise<ContentProjectSummaryDto[]> {
     try {
-      return (await (this.prisma as ContentProjectsPrisma).contentProject.findMany()).map(toSummaryDto);
+      return (await (this.prisma as ContentProjectsPrisma).contentProject.findMany(contentProjectSummaryInclude)).map(toSummaryDto);
     } catch {
       throw apiError('CONTENT_PROJECTS_LOAD_FAILED', 'Failed to load content projects');
     }
@@ -146,6 +174,7 @@ export class ContentProjectsService {
     try {
       const project = await (this.prisma as ContentProjectsPrisma).contentProject.create({
         data: { ...request, status: 'draft' },
+        ...contentProjectDetailInclude,
       });
 
       return toDetailDto(project, null);
@@ -156,7 +185,10 @@ export class ContentProjectsService {
 
   async getContentProject(id: string): Promise<ContentProjectDetailDto> {
     try {
-      const project = await (this.prisma as ContentProjectsPrisma).contentProject.findUnique({ where: { id } });
+      const project = await (this.prisma as ContentProjectsPrisma).contentProject.findUnique({
+        where: { id },
+        ...contentProjectDetailInclude,
+      });
 
       if (!project) {
         throw apiError('CONTENT_PROJECT_NOT_FOUND', 'Content project was not found');
@@ -184,6 +216,7 @@ export class ContentProjectsService {
       const project = await (this.prisma as ContentProjectsPrisma).contentProject.update({
         where: { id },
         data: request,
+        ...contentProjectDetailInclude,
       });
 
       return toDetailDto(project, null);

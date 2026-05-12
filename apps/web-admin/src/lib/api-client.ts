@@ -18,13 +18,33 @@ type ApiResponse<T> = ApiSuccessResponse<T> | ApiErrorResponse;
 
 async function request<T>(path: string, init: RequestInit): Promise<T> {
   const response = await fetch(path, init);
-  const body = (await response.json()) as ApiResponse<T>;
+  const body = await parseResponse<T>(response);
 
   if (!response.ok || !body.success) {
     throw body.success ? new Error('Request failed') : body.error;
   }
 
   return body.data;
+}
+
+async function parseResponse<T>(response: Response): Promise<ApiResponse<T>> {
+  const contentType = response.headers?.get('content-type') ?? 'application/json';
+
+  if (contentType.includes('application/json')) {
+    try {
+      return (await response.json()) as ApiResponse<T>;
+    } catch {
+      return {
+        success: false,
+        error: { code: 'VALIDATION_ERROR', message: response.ok ? 'Empty response' : 'Request failed' },
+      };
+    }
+  }
+
+  return {
+    success: false,
+    error: { code: 'VALIDATION_ERROR', message: response.ok ? 'Empty response' : 'Request failed' },
+  };
 }
 
 function jsonRequest(method: string, body: unknown): RequestInit {

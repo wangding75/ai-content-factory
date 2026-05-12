@@ -19,6 +19,8 @@ export default defineConfig({
     setupFiles: ['./apps/api-server/src/test-setup.ts'],
     env: {
       PATH: `${scriptsPath}${path.delimiter}${process.env.PATH ?? ''}`,
+      LLM_PROVIDER_API_KEY_ENCRYPTION_KEY:
+        process.env.LLM_PROVIDER_API_KEY_ENCRYPTION_KEY ?? 'test-only-encryption-key-32-chars',
     },
   },
   esbuild: {
