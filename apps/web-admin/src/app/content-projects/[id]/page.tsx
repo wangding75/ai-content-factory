@@ -13,6 +13,7 @@ export default function ContentProjectDetailPage(): JSX.Element {
         <button type="submit">Save</button>
       </form>
       <button type="button">Delete</button>
+      <button type="button">Confirm delete</button>
       <button type="button">Retry</button>
     </main>
   );
