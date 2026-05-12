@@ -1,8 +1,16 @@
-export default function LlmProviderPage(): JSX.Element {
+type LlmProviderScenario = 'configured' | 'empty';
+
+interface LlmProviderPageProps {
+  provider?: LlmProviderScenario;
+}
+
+export default function LlmProviderPage({ provider = 'empty' }: LlmProviderPageProps): JSX.Element {
+  const apiKeyStatus = provider === 'configured' ? 'sk-***abcd' : 'Not configured';
+
   return (
     <main>
       <h1>LLM Provider</h1>
-      <section aria-label="Provider safe status">API key configured status</section>
+      <section aria-label="Provider safe status">API key configured status: {apiKeyStatus}</section>
       <form>
         <label htmlFor="providerName">Provider name</label>
         <input id="providerName" name="providerName" />

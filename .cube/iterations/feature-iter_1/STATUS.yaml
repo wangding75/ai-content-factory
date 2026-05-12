@@ -103,4 +103,7 @@ tasks:
     completed_at: "2026-05-12 14:49"
   - task: "Task-14：实现 LLM Provider Web 页面骨架"
     test_file: apps/web-admin/src/app/llm-provider/page.test.tsx
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 14:51"
+    test_passed: 3
+    test_total: 3
