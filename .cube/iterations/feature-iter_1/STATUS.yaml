@@ -54,7 +54,10 @@ tasks:
     completed_at: "2026-05-12 13:48"
   - task: "Task-07：实现 PromptTemplate API 骨架"
     test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 13:59"
+    test_passed: 10
+    test_total: 10
   - task: "Task-08：实现默认 LLM Provider API 骨架"
     test_file: apps/api-server/src/llm-providers/llm-providers.integration.test.ts
     phase: locked
