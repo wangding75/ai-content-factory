@@ -181,3 +181,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 13：Task-13：实现 PromptTemplate Web 页面骨架（完成时间：2026-05-12 14:49）
+
+- 测试文件：apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 []（PromptTemplate 页面合约已满足）
+- phase：locked → green → done
+
+---
