@@ -172,3 +172,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 12：Task-12：实现内容项目 Web 页面骨架（完成时间：2026-05-12 14:47）
+
+- 测试文件：apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
+- 测试结果：5/5 通过
+- 文件变更：新增 [] / 修改 [apps/web-admin/src/app/content-projects/new/page.tsx, apps/web-admin/src/app/content-projects/[id]/page.tsx]（与计划一致：列表页已满足无需修改）
+- phase：locked → green → done
+
+---
