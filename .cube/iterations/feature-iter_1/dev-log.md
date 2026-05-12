@@ -154,3 +154,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 10：Task-10：实现 Web API Client 骨架（完成时间：2026-05-12 14:35）
+
+- 测试文件：apps/web-admin/src/lib/api-client.test.ts
+- 测试结果：12/12 通过
+- 文件变更：新增 [] / 修改 [apps/web-admin/src/lib/api-client.ts]（与计划一致）
+- phase：locked → green → done
+
+---
