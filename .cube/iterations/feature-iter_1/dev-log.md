@@ -100,3 +100,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 4：Task-04：新增 Prisma 数据模型（完成时间：2026-05-12 13:42）
+
+- 测试文件：apps/api-server/src/prisma/schema.contract.test.ts
+- 测试结果：5/5 通过
+- 文件变更：新增 [] / 修改 []（schema 合约已满足）
+- phase：locked → green → done
+
+---
