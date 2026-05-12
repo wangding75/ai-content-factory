@@ -33,7 +33,10 @@ tasks:
     completed_at: "2026-05-12 13:41"
   - task: "Task-04：新增 Prisma 数据模型"
     test_file: apps/api-server/src/prisma/schema.contract.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 13:42"
+    test_passed: 5
+    test_total: 5
   - task: "Task-05：实现内容类型查询 API 骨架"
     test_file: apps/api-server/src/content-types/content-types.integration.test.ts
     phase: locked
