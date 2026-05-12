@@ -190,3 +190,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 14：Task-14：实现 LLM Provider Web 页面骨架（完成时间：2026-05-12 14:59）
+
+- 测试文件：apps/web-admin/src/app/llm-provider/page.test.tsx
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 [apps/web-admin/src/app/llm-provider/page.tsx]（与计划一致）
+- phase：locked → green → done
+
+---
