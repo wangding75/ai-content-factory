@@ -75,7 +75,10 @@ tasks:
     completed_at: "2026-05-12 14:17"
   - task: "Task-10：实现 Web API Client 骨架"
     test_file: apps/web-admin/src/lib/api-client.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 14:34"
+    test_passed: 12
+    test_total: 12
   - task: "Task-11：实现 Web 管理台基础导航骨架"
     test_file: apps/web-admin/src/app/page.test.tsx
     phase: locked

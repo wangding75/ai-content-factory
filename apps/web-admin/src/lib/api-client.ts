@@ -1,4 +1,6 @@
 import type {
+  ApiErrorResponse,
+  ApiSuccessResponse,
   ContentProjectDetailDto,
   ContentProjectSummaryDto,
   ContentTypeDto,
@@ -12,63 +14,76 @@ import type {
   UpdateContentProjectRequest,
 } from '@ai-content-factory/shared';
 
+type ApiResponse<T> = ApiSuccessResponse<T> | ApiErrorResponse;
+
+async function request<T>(path: string, init: RequestInit): Promise<T> {
+  const response = await fetch(path, init);
+  const body = (await response.json()) as ApiResponse<T>;
+
+  if (!response.ok || !body.success) {
+    throw body.success ? new Error('Request failed') : body.error;
+  }
+
+  return body.data;
+}
+
+function jsonRequest(method: string, body: unknown): RequestInit {
+  return {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  };
+}
+
 export async function listContentTypes(): Promise<ContentTypeDto[]> {
-  throw new Error('not implemented');
+  return request('/api/v1/content-types', { method: 'GET' });
 }
 
 export async function listContentProjects(): Promise<ContentProjectSummaryDto[]> {
-  throw new Error('not implemented');
+  return request('/api/v1/content-projects', { method: 'GET' });
 }
 
 export async function createContentProject(
-  request: CreateContentProjectRequest,
+  requestBody: CreateContentProjectRequest,
 ): Promise<ContentProjectDetailDto> {
-  void request;
-  throw new Error('not implemented');
+  return request('/api/v1/content-projects', jsonRequest('POST', requestBody));
 }
 
 export async function getContentProject(id: string): Promise<ContentProjectDetailDto> {
-  void id;
-  throw new Error('not implemented');
+  return request(`/api/v1/content-projects/${id}`, { method: 'GET' });
 }
 
 export async function updateContentProject(
   id: string,
-  request: UpdateContentProjectRequest,
+  requestBody: UpdateContentProjectRequest,
 ): Promise<ContentProjectDetailDto> {
-  void id;
-  void request;
-  throw new Error('not implemented');
+  return request(`/api/v1/content-projects/${id}`, jsonRequest('PATCH', requestBody));
 }
 
 export async function deleteContentProject(id: string): Promise<DeleteContentProjectResponse> {
-  void id;
-  throw new Error('not implemented');
+  return request(`/api/v1/content-projects/${id}`, { method: 'DELETE' });
 }
 
 export async function listPromptTemplates(): Promise<PromptTemplateSummaryDto[]> {
-  throw new Error('not implemented');
+  return request('/api/v1/prompt-templates', { method: 'GET' });
 }
 
 export async function createPromptTemplate(
-  request: CreatePromptTemplateRequest,
+  requestBody: CreatePromptTemplateRequest,
 ): Promise<PromptTemplateDetailDto> {
-  void request;
-  throw new Error('not implemented');
+  return request('/api/v1/prompt-templates', jsonRequest('POST', requestBody));
 }
 
 export async function getPromptTemplate(id: string): Promise<PromptTemplateDetailDto> {
-  void id;
-  throw new Error('not implemented');
+  return request(`/api/v1/prompt-templates/${id}`, { method: 'GET' });
 }
 
 export async function getDefaultLlmProvider(): Promise<LlmProviderSafeDto | null> {
-  throw new Error('not implemented');
+  return request('/api/v1/llm-providers/default', { method: 'GET' });
 }
 
 export async function saveDefaultLlmProvider(
-  request: SaveDefaultLlmProviderRequest,
+  requestBody: SaveDefaultLlmProviderRequest,
 ): Promise<LlmProviderSafeDto> {
-  void request;
-  throw new Error('not implemented');
+  return request('/api/v1/llm-providers/default', jsonRequest('PUT', requestBody));
 }
