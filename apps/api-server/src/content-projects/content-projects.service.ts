@@ -45,6 +45,14 @@ export class ContentProjectsService {
 
   toEntity(project: ContentProjectEntity): ContentProjectEntity {
     void this.contentTypesService;
-    return project;
+    return {
+      id: project.id,
+      name: project.name,
+      contentTypeId: project.contentTypeId,
+      targetPlatform: project.targetPlatform,
+      targetContentCount: project.targetContentCount,
+      defaultGenerationParams: project.defaultGenerationParams,
+      status: project.status,
+    };
   }
 }
