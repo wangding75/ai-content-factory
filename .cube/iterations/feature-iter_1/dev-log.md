@@ -127,3 +127,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 7：Task-07：实现 PromptTemplate API 骨架（完成时间：2026-05-12 13:59）
+
+- 测试文件：apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
+- 测试结果：10/10 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/prompt-templates/prompt-templates.service.ts]（与计划不一致：validation 已满足无需修改）
+- phase：locked → green → done
+
+---
