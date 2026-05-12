@@ -73,3 +73,12 @@
 - 修改：apps/web-admin/src/app/llm-provider/page.tsx
 
 ---
+
+## 任务 1：Task-01：定义共享 API 响应、错误码和内容项目类型（完成时间：2026-05-12 02:02）
+
+- 测试文件：packages/shared/src/index.test.ts
+- 测试结果：4/4 通过
+- 文件变更：新增 [] / 修改 [packages/shared/src/index.ts]（与计划一致）
+- phase：locked → green → done
+
+---

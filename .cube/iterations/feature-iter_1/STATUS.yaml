@@ -12,10 +12,11 @@ branch: feature/iter_1
 tasks:
   - task: "Task-01：定义共享 API 响应、错误码和内容项目类型"
     test_file: packages/shared/src/index.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-12 02:00"
     test_passed: 4
     test_total: 4
+    completed_at: "2026-05-12 02:02"
   - task: "Task-02：定义通用内容项目领域接口"
     test_file: packages/core/src/index.test.ts
     phase: locked
