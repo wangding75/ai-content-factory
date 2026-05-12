@@ -54,8 +54,13 @@ function encryptApiKey(apiKey: string): string {
   const cipher = createCipheriv('aes-256-gcm', encryptionKey(), iv);
   const ciphertext = Buffer.concat([cipher.update(apiKey, 'utf8'), cipher.final()]);
   const tag = cipher.getAuthTag();
+  const preview = maskApiKey(apiKey);
 
-  return `aes-256-gcm:${iv.toString('base64')}:${tag.toString('base64')}:${ciphertext.toString('base64')}`;
+  return `aes-256-gcm:${preview}:${iv.toString('base64')}:${tag.toString('base64')}:${ciphertext.toString('base64')}`;
+}
+
+function maskApiKey(apiKey: string): string {
+  return `${apiKey.slice(0, 3)}***${apiKey.slice(-4)}`;
 }
 
 function apiKeyPreview(encryptedApiKeyValue: string): string | null {
@@ -66,10 +71,14 @@ function apiKeyPreview(encryptedApiKeyValue: string): string | null {
   if (encryptedApiKeyValue.startsWith('encrypted:')) {
     const apiKey = encryptedApiKeyValue.replace(/^encrypted:/, '');
 
-    return apiKey ? `${apiKey.slice(0, 3)}***${apiKey.slice(-4)}` : null;
+    return apiKey ? maskApiKey(apiKey) : null;
   }
 
-  return 'configured';
+  if (encryptedApiKeyValue.startsWith('aes-256-gcm:')) {
+    return encryptedApiKeyValue.split(':')[1] ?? null;
+  }
+
+  return null;
 }
 
 @Injectable()
