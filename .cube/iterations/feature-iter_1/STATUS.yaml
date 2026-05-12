@@ -82,7 +82,10 @@ tasks:
     completed_at: "2026-05-12 14:35"
   - task: "Task-11：实现 Web 管理台基础导航骨架"
     test_file: apps/web-admin/src/app/page.test.tsx
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 14:37"
+    test_passed: 2
+    test_total: 2
   - task: "Task-12：实现内容项目 Web 页面骨架"
     test_file: apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
     phase: locked
