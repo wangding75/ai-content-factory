@@ -82,3 +82,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 2：Task-02：定义通用内容项目领域接口（完成时间：2026-05-12 13:38）
+
+- 测试文件：packages/core/src/index.test.ts
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 [packages/core/src/index.ts]（与计划一致）
+- phase：locked → green → done
+
+---
