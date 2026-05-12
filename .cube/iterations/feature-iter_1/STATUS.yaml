@@ -40,7 +40,10 @@ tasks:
     completed_at: "2026-05-12 13:42"
   - task: "Task-05：实现内容类型查询 API 骨架"
     test_file: apps/api-server/src/content-types/content-types.integration.test.ts
-    phase: locked
+    phase: green
+    started_at: "2026-05-12 13:44"
+    test_passed: 4
+    test_total: 4
   - task: "Task-06：实现内容项目 CRUD API 骨架"
     test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
     phase: locked
