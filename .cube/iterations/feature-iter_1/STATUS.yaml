@@ -26,10 +26,11 @@ tasks:
     completed_at: "2026-05-12 13:38"
   - task: "Task-03：新增 core 接口消费映射"
     test_file: apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
-    phase: green
+    phase: done
     started_at: "2026-05-12 13:40"
     test_passed: 2
     test_total: 2
+    completed_at: "2026-05-12 13:41"
   - task: "Task-04：新增 Prisma 数据模型"
     test_file: apps/api-server/src/prisma/schema.contract.test.ts
     phase: locked

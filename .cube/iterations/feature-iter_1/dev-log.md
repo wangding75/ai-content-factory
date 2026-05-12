@@ -91,3 +91,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 3：Task-03：新增 core 接口消费映射（完成时间：2026-05-12 13:41）
+
+- 测试文件：apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
+- 测试结果：2/2 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/content-projects/content-projects.service.ts]（与计划一致）
+- phase：locked → green → done
+
+---
