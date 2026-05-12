@@ -109,3 +109,12 @@
 - phase：locked → green → done
 
 ---
+
+## 任务 5：Task-05：实现内容类型查询 API 骨架（完成时间：2026-05-12 13:45）
+
+- 测试文件：apps/api-server/src/content-types/content-types.integration.test.ts
+- 测试结果：4/4 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/content-types/content-types.service.ts]（与计划一致）
+- phase：locked → green → done
+
+---
