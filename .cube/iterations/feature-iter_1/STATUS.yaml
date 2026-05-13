@@ -1,0 +1,110 @@
+# STATUS.yaml — Per-task TDD development progress
+# AI reads this file at session start to recover context
+# Update phase after completing each task
+#
+# phase values: locked | green | done
+# tracking fields (added during execution): started_at, completed_at, test_passed, test_total
+
+stage: 04-development
+project: ai-content-factory
+branch: feature/iter_1
+
+tasks:
+  - task: "Task-01：定义共享 API 响应、错误码和内容项目类型"
+    test_file: packages/shared/src/index.test.ts
+    phase: done
+    started_at: "2026-05-12 02:00"
+    test_passed: 4
+    test_total: 4
+    completed_at: "2026-05-12 02:02"
+  - task: "Task-02：定义通用内容项目领域接口"
+    test_file: packages/core/src/index.test.ts
+    phase: done
+    started_at: "2026-05-12 02:03"
+    test_passed: 3
+    test_total: 3
+    completed_at: "2026-05-12 13:38"
+  - task: "Task-03：新增 core 接口消费映射"
+    test_file: apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
+    phase: done
+    started_at: "2026-05-12 13:40"
+    test_passed: 2
+    test_total: 2
+    completed_at: "2026-05-12 13:41"
+  - task: "Task-04：新增 Prisma 数据模型"
+    test_file: apps/api-server/src/prisma/schema.contract.test.ts
+    phase: done
+    started_at: "2026-05-12 13:42"
+    test_passed: 5
+    test_total: 5
+    completed_at: "2026-05-12 13:42"
+  - task: "Task-05：实现内容类型查询 API 骨架"
+    test_file: apps/api-server/src/content-types/content-types.integration.test.ts
+    phase: done
+    started_at: "2026-05-12 13:44"
+    test_passed: 4
+    test_total: 4
+    completed_at: "2026-05-12 13:45"
+  - task: "Task-06：实现内容项目 CRUD API 骨架"
+    test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
+    phase: done
+    started_at: "2026-05-12 13:47"
+    test_passed: 18
+    test_total: 18
+    completed_at: "2026-05-12 13:48"
+  - task: "Task-07：实现 PromptTemplate API 骨架"
+    test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
+    phase: done
+    started_at: "2026-05-12 13:59"
+    test_passed: 10
+    test_total: 10
+    completed_at: "2026-05-12 13:59"
+  - task: "Task-08：实现默认 LLM Provider API 骨架"
+    test_file: apps/api-server/src/llm-providers/llm-providers.integration.test.ts
+    phase: done
+    started_at: "2026-05-12 14:01"
+    test_passed: 10
+    test_total: 10
+    completed_at: "2026-05-12 14:02"
+  - task: "Task-09：挂载 API 业务模块"
+    test_file: apps/api-server/src/app.test.ts
+    phase: done
+    started_at: "2026-05-12 14:16"
+    test_passed: 3
+    test_total: 3
+    completed_at: "2026-05-12 14:17"
+  - task: "Task-10：实现 Web API Client 骨架"
+    test_file: apps/web-admin/src/lib/api-client.test.ts
+    phase: done
+    started_at: "2026-05-12 14:34"
+    test_passed: 12
+    test_total: 12
+    completed_at: "2026-05-12 14:35"
+  - task: "Task-11：实现 Web 管理台基础导航骨架"
+    test_file: apps/web-admin/src/app/page.test.tsx
+    phase: done
+    started_at: "2026-05-12 14:37"
+    test_passed: 2
+    test_total: 2
+    completed_at: "2026-05-12 14:38"
+  - task: "Task-12：实现内容项目 Web 页面骨架"
+    test_file: apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
+    phase: done
+    started_at: "2026-05-12 14:39"
+    test_passed: 5
+    test_total: 5
+    completed_at: "2026-05-12 14:47"
+  - task: "Task-13：实现 PromptTemplate Web 页面骨架"
+    test_file: apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
+    phase: done
+    started_at: "2026-05-12 14:48"
+    test_passed: 3
+    test_total: 3
+    completed_at: "2026-05-12 14:49"
+  - task: "Task-14：实现 LLM Provider Web 页面骨架"
+    test_file: apps/web-admin/src/app/llm-provider/page.test.tsx
+    phase: done
+    started_at: "2026-05-12 14:51"
+    test_passed: 3
+    test_total: 3
+    completed_at: "2026-05-12 14:59"

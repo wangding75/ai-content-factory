@@ -1,0 +1,137 @@
+tasks:
+  - task: "Task-01：定义共享 API 响应、错误码和内容项目类型"
+    module: packages/shared
+    test_file: packages/shared/src/index.test.ts
+    test_cases: 4
+  - task: "Task-02：定义通用内容项目领域接口"
+    module: packages/core
+    test_file: packages/core/src/index.test.ts
+    test_cases: 3
+  - task: "Task-03：新增 core 接口消费映射"
+    module: apps/api-server/content-projects
+    test_file: apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
+    test_cases: 2
+  - task: "Task-04：新增 Prisma 数据模型"
+    module: apps/api-server/prisma
+    test_file: apps/api-server/src/prisma/schema.contract.test.ts
+    test_cases: 5
+  - task: "Task-05：实现内容类型查询 API 骨架"
+    module: apps/api-server/content-types
+    test_file: apps/api-server/src/content-types/content-types.integration.test.ts
+    test_cases: 4
+  - task: "Task-06：实现内容项目 CRUD API 骨架"
+    module: apps/api-server/content-projects
+    test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
+    test_cases: 10
+  - task: "Task-07：实现 PromptTemplate API 骨架"
+    module: apps/api-server/prompt-templates
+    test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
+    test_cases: 6
+  - task: "Task-08：实现默认 LLM Provider API 骨架"
+    module: apps/api-server/llm-providers
+    test_file: apps/api-server/src/llm-providers/llm-providers.integration.test.ts
+    test_cases: 5
+  - task: "Task-09：挂载 API 业务模块"
+    module: apps/api-server/app-module
+    test_file: apps/api-server/src/app.test.ts
+    test_cases: 3
+  - task: "Task-10：实现 Web API Client 骨架"
+    module: apps/web-admin/lib
+    test_file: apps/web-admin/src/lib/api-client.test.ts
+    test_cases: 5
+  - task: "Task-11：实现 Web 管理台基础导航骨架"
+    module: apps/web-admin/app
+    test_file: apps/web-admin/src/app/page.test.tsx
+    test_cases: 2
+  - task: "Task-12：实现内容项目 Web 页面骨架"
+    module: apps/web-admin/content-projects
+    test_file: apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
+    test_cases: 5
+  - task: "Task-13：实现 PromptTemplate Web 页面骨架"
+    module: apps/web-admin/prompt-templates
+    test_file: apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
+    test_cases: 3
+  - task: "Task-14：实现 LLM Provider Web 页面骨架"
+    module: apps/web-admin/llm-provider
+    test_file: apps/web-admin/src/app/llm-provider/page.test.tsx
+    test_cases: 3
+
+type_tests:
+  - type: library
+    standard: standards/testing/library.md
+    test_file: packages/shared/src/index.test.ts
+    resources: []
+    covers:
+      - "Task-01：定义共享 API 响应、错误码和内容项目类型"
+  - type: library
+    standard: standards/testing/library.md
+    test_file: packages/core/src/index.test.ts
+    resources: []
+    covers:
+      - "Task-02：定义通用内容项目领域接口"
+  - type: library
+    standard: standards/testing/library.md
+    test_file: apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
+    resources: []
+    covers:
+      - "Task-03：新增 core 接口消费映射"
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: apps/api-server/src/content-types/content-types.integration.test.ts
+    resources: []
+    covers:
+      - "Task-05：实现内容类型查询 API 骨架"
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: apps/api-server/src/content-projects/content-projects.integration.test.ts
+    resources: []
+    covers:
+      - "Task-06：实现内容项目 CRUD API 骨架"
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
+    resources: []
+    covers:
+      - "Task-07：实现 PromptTemplate API 骨架"
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: apps/api-server/src/llm-providers/llm-providers.integration.test.ts
+    resources: []
+    covers:
+      - "Task-08：实现默认 LLM Provider API 骨架"
+  - type: integration
+    standard: standards/testing/integration.md
+    test_file: apps/api-server/src/app.test.ts
+    resources: []
+    covers:
+      - "Task-09：挂载 API 业务模块"
+  - type: library
+    standard: standards/testing/library.md
+    test_file: apps/web-admin/src/lib/api-client.test.ts
+    resources: []
+    covers:
+      - "Task-10：实现 Web API Client 骨架"
+  - type: web-e2e
+    standard: standards/testing/web-e2e.md
+    test_file: apps/web-admin/src/app/page.test.tsx
+    resources: []
+    covers:
+      - "Task-11：实现 Web 管理台基础导航骨架"
+  - type: web-e2e
+    standard: standards/testing/web-e2e.md
+    test_file: apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
+    resources: []
+    covers:
+      - "Task-12：实现内容项目 Web 页面骨架"
+  - type: web-e2e
+    standard: standards/testing/web-e2e.md
+    test_file: apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
+    resources: []
+    covers:
+      - "Task-13：实现 PromptTemplate Web 页面骨架"
+  - type: web-e2e
+    standard: standards/testing/web-e2e.md
+    test_file: apps/web-admin/src/app/llm-provider/page.test.tsx
+    resources: []
+    covers:
+      - "Task-14：实现 LLM Provider Web 页面骨架"

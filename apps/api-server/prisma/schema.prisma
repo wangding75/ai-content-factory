@@ -7,4 +7,65 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// No business models in Iteration 0 — tables will be added starting Iteration 1
+model ContentType {
+  id              String           @id
+  name            String
+  packId          String
+  enabled         Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  contentProjects ContentProject[]
+  promptTemplates PromptTemplate[]
+
+  @@index([enabled])
+  @@map("content_types")
+}
+
+model ContentProject {
+  id                      String      @id @default(cuid())
+  name                    String
+  contentTypeId           String
+  targetPlatform          String
+  targetContentCount      Int
+  defaultGenerationParams Json
+  status                  String      @default("draft")
+  createdAt               DateTime    @default(now())
+  updatedAt               DateTime    @updatedAt
+  contentType             ContentType @relation(fields: [contentTypeId], references: [id])
+
+  @@index([contentTypeId])
+  @@index([status])
+  @@index([updatedAt])
+  @@map("content_projects")
+}
+
+model PromptTemplate {
+  id            String      @id @default(cuid())
+  name          String
+  contentTypeId String
+  purpose       String
+  content       String
+  version       String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  contentType   ContentType @relation(fields: [contentTypeId], references: [id])
+
+  @@index([contentTypeId])
+  @@index([purpose])
+  @@index([version])
+  @@map("prompt_templates")
+}
+
+model LlmProvider {
+  id                String   @id
+  name              String
+  model             String
+  baseUrl           String?
+  encryptedApiKeyValue String
+  enabled           Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([enabled])
+  @@map("llm_providers")
+}

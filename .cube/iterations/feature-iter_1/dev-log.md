@@ -1,0 +1,209 @@
+# Development Log
+
+## 执行计划（生成时间：2026-05-12 01:59）
+
+整体进度：已完成 0 / 共 14 个任务
+
+| # | 任务 | 测试文件 | 当前状态 | 变更文件数 |
+|---|------|----------|----------|-----------|
+| 1 | Task-01：定义共享 API 响应、错误码和内容项目类型 | packages/shared/src/index.test.ts | locked | 修改 1 |
+| 2 | Task-02：定义通用内容项目领域接口 | packages/core/src/index.test.ts | locked | 修改 1 |
+| 3 | Task-03：新增 core 接口消费映射 | apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts | locked | 修改 1 |
+| 4 | Task-04：新增 Prisma 数据模型 | apps/api-server/src/prisma/schema.contract.test.ts | locked | 修改 1 |
+| 5 | Task-05：实现内容类型查询 API 骨架 | apps/api-server/src/content-types/content-types.integration.test.ts | locked | 修改 2 |
+| 6 | Task-06：实现内容项目 CRUD API 骨架 | apps/api-server/src/content-projects/content-projects.integration.test.ts | locked | 修改 2 |
+| 7 | Task-07：实现 PromptTemplate API 骨架 | apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts | locked | 修改 2 |
+| 8 | Task-08：实现默认 LLM Provider API 骨架 | apps/api-server/src/llm-providers/llm-providers.integration.test.ts | locked | 修改 2 |
+| 9 | Task-09：挂载 API 业务模块 | apps/api-server/src/app.test.ts | locked | 修改 1 |
+| 10 | Task-10：实现 Web API Client 骨架 | apps/web-admin/src/lib/api-client.test.ts | locked | 修改 1 |
+| 11 | Task-11：实现 Web 管理台基础导航骨架 | apps/web-admin/src/app/page.test.tsx | locked | 修改 1 |
+| 12 | Task-12：实现内容项目 Web 页面骨架 | apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx | locked | 修改 3 |
+| 13 | Task-13：实现 PromptTemplate Web 页面骨架 | apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx | locked | 修改 2 |
+| 14 | Task-14：实现 LLM Provider Web 页面骨架 | apps/web-admin/src/app/llm-provider/page.test.tsx | locked | 修改 1 |
+
+### 文件变更明细
+
+**任务 1：Task-01：定义共享 API 响应、错误码和内容项目类型**
+- 修改：packages/shared/src/index.ts
+
+**任务 2：Task-02：定义通用内容项目领域接口**
+- 修改：packages/core/src/index.ts
+
+**任务 3：Task-03：新增 core 接口消费映射**
+- 修改：apps/api-server/src/content-projects/content-projects.service.ts
+
+**任务 4：Task-04：新增 Prisma 数据模型**
+- 修改：apps/api-server/prisma/schema.prisma
+
+**任务 5：Task-05：实现内容类型查询 API 骨架**
+- 修改：apps/api-server/src/content-types/content-types.service.ts
+- 修改：apps/api-server/src/content-types/content-types.controller.ts
+
+**任务 6：Task-06：实现内容项目 CRUD API 骨架**
+- 修改：apps/api-server/src/content-projects/content-projects.service.ts
+- 修改：apps/api-server/src/content-projects/content-projects.validation.ts
+
+**任务 7：Task-07：实现 PromptTemplate API 骨架**
+- 修改：apps/api-server/src/prompt-templates/prompt-templates.service.ts
+- 修改：apps/api-server/src/prompt-templates/prompt-templates.validation.ts
+
+**任务 8：Task-08：实现默认 LLM Provider API 骨架**
+- 修改：apps/api-server/src/llm-providers/llm-providers.service.ts
+- 修改：apps/api-server/src/llm-providers/llm-providers.validation.ts
+
+**任务 9：Task-09：挂载 API 业务模块**
+- 修改：apps/api-server/src/app.module.ts
+
+**任务 10：Task-10：实现 Web API Client 骨架**
+- 修改：apps/web-admin/src/lib/api-client.ts
+
+**任务 11：Task-11：实现 Web 管理台基础导航骨架**
+- 修改：apps/web-admin/src/app/page.tsx
+
+**任务 12：Task-12：实现内容项目 Web 页面骨架**
+- 修改：apps/web-admin/src/app/content-projects/page.tsx
+- 修改：apps/web-admin/src/app/content-projects/new/page.tsx
+- 修改：apps/web-admin/src/app/content-projects/[id]/page.tsx
+
+**任务 13：Task-13：实现 PromptTemplate Web 页面骨架**
+- 修改：apps/web-admin/src/app/prompt-templates/page.tsx
+- 修改：apps/web-admin/src/app/prompt-templates/[id]/page.tsx
+
+**任务 14：Task-14：实现 LLM Provider Web 页面骨架**
+- 修改：apps/web-admin/src/app/llm-provider/page.tsx
+
+---
+
+## 任务 1：Task-01：定义共享 API 响应、错误码和内容项目类型（完成时间：2026-05-12 02:02）
+
+- 测试文件：packages/shared/src/index.test.ts
+- 测试结果：4/4 通过
+- 文件变更：新增 [] / 修改 [packages/shared/src/index.ts]（与计划一致）
+- phase：locked → green → done
+
+---
+
+## 任务 2：Task-02：定义通用内容项目领域接口（完成时间：2026-05-12 13:38）
+
+- 测试文件：packages/core/src/index.test.ts
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 [packages/core/src/index.ts]（与计划一致）
+- phase：locked → green → done
+
+---
+
+## 任务 3：Task-03：新增 core 接口消费映射（完成时间：2026-05-12 13:41）
+
+- 测试文件：apps/api-server/src/content-projects/content-projects.entity-mapping.test.ts
+- 测试结果：2/2 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/content-projects/content-projects.service.ts]（与计划一致）
+- phase：locked → green → done
+
+---
+
+## 任务 4：Task-04：新增 Prisma 数据模型（完成时间：2026-05-12 13:42）
+
+- 测试文件：apps/api-server/src/prisma/schema.contract.test.ts
+- 测试结果：5/5 通过
+- 文件变更：新增 [] / 修改 []（schema 合约已满足）
+- phase：locked → green → done
+
+---
+
+## 任务 5：Task-05：实现内容类型查询 API 骨架（完成时间：2026-05-12 13:45）
+
+- 测试文件：apps/api-server/src/content-types/content-types.integration.test.ts
+- 测试结果：4/4 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/content-types/content-types.service.ts]（与计划一致）
+- phase：locked → green → done
+
+---
+
+## 任务 6：Task-06：实现内容项目 CRUD API 骨架（完成时间：2026-05-12 13:48）
+
+- 测试文件：apps/api-server/src/content-projects/content-projects.integration.test.ts
+- 测试结果：18/18 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/content-projects/content-projects.service.ts]（与计划不一致：validation 已满足无需修改）
+- phase：locked → green → done
+
+---
+
+## 任务 7：Task-07：实现 PromptTemplate API 骨架（完成时间：2026-05-12 13:59）
+
+- 测试文件：apps/api-server/src/prompt-templates/prompt-templates.integration.test.ts
+- 测试结果：10/10 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/prompt-templates/prompt-templates.service.ts]（与计划不一致：validation 已满足无需修改）
+- phase：locked → green → done
+
+---
+
+## 任务 8：Task-08：实现默认 LLM Provider API 骨架（完成时间：2026-05-12 14:02）
+
+- 测试文件：apps/api-server/src/llm-providers/llm-providers.integration.test.ts
+- 测试结果：10/10 通过
+- 文件变更：新增 [] / 修改 [apps/api-server/src/llm-providers/llm-providers.service.ts]（与计划不一致：validation 已满足无需修改）
+- phase：locked → green → done
+
+---
+
+## 任务 9：Task-09：挂载 API 业务模块（完成时间：2026-05-12 14:17）
+
+- 测试文件：apps/api-server/src/app.test.ts
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 []（app module 合约已满足）
+- phase：locked → green → done
+
+---
+
+## 任务 10：Task-10：实现 Web API Client 骨架（完成时间：2026-05-12 14:35）
+
+- 测试文件：apps/web-admin/src/lib/api-client.test.ts
+- 测试结果：12/12 通过
+- 文件变更：新增 [] / 修改 [apps/web-admin/src/lib/api-client.ts]（与计划一致）
+- phase：locked → green → done
+
+---
+
+## 任务 11：Task-11：实现 Web 管理台基础导航骨架（完成时间：2026-05-12 14:38）
+
+- 测试文件：apps/web-admin/src/app/page.test.tsx
+- 测试结果：2/2 通过
+- 文件变更：新增 [] / 修改 []（页面导航合约已满足）
+- phase：locked → green → done
+
+---
+
+## 任务 12：Task-12：实现内容项目 Web 页面骨架（完成时间：2026-05-12 14:47）
+
+- 测试文件：apps/web-admin/src/app/content-projects/content-projects-pages.test.tsx
+- 测试结果：5/5 通过
+- 文件变更：新增 [] / 修改 [apps/web-admin/src/app/content-projects/new/page.tsx, apps/web-admin/src/app/content-projects/[id]/page.tsx]（与计划一致：列表页已满足无需修改）
+- phase：locked → green → done
+
+---
+
+## 任务 13：Task-13：实现 PromptTemplate Web 页面骨架（完成时间：2026-05-12 14:49）
+
+- 测试文件：apps/web-admin/src/app/prompt-templates/prompt-templates-pages.test.tsx
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 []（PromptTemplate 页面合约已满足）
+- phase：locked → green → done
+
+---
+
+## 任务 14：Task-14：实现 LLM Provider Web 页面骨架（完成时间：2026-05-12 14:59）
+
+- 测试文件：apps/web-admin/src/app/llm-provider/page.test.tsx
+- 测试结果：3/3 通过
+- 文件变更：新增 [] / 修改 [apps/web-admin/src/app/llm-provider/page.tsx]（与计划一致）
+- phase：locked → green → done
+
+---
+
+## 代码审查（完成时间：2026-05-12 16:05）
+
+- 代码质量审查：通过；最终复审无 CRITICAL/HIGH 问题，已修复加密配置、API client 响应解析、Prisma include、共享错误码类型漂移等问题
+- 安全审查：通过；AES-256-GCM 加密、HTTPS-only baseUrl、非测试环境加密密钥启动校验均已落实；当前 skeleton 设计未包含鉴权，作为架构范围外风险记录
+- 验证结果：`pnpm -r typecheck` 通过；`pnpm vitest run` 26 个测试文件通过，117 个测试通过，2 个 todo
+
+---
